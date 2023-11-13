@@ -1,4 +1,6 @@
-# Practice Problem Generator
+# Probloom: AIGC-Powered Practice Problem Generator
+## Generating practice problems to help your academic career bloom! :D
+
 Group project for CMPT 276
 
 Vercel hosting link: https://practice-problem-generator.vercel.app/
