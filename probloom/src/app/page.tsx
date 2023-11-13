@@ -43,7 +43,7 @@ export default function Home() {
   }
 
   async function handleGenerateSolutions() {
-    handleGeneration(`Create a practice problem for the following topic: ${topic}.`, setProblems);
+    handleGeneration(`Create a solution for this problem: ${problems}`, setSolutions);
   }
   
 
@@ -61,7 +61,7 @@ export default function Home() {
           {loading ? 'Generating...' : 'Generate Problem'}
         </button>
         <button onClick={handleGenerateSolutions} className={styles.button} disabled={loading}>
-          {loading ? 'Generating...' : 'Generate Problem'}
+          {loading ? 'Generating...' : 'Generate Solution'}
         </button>
       </div>
       {problems && <div className={styles.problems}>{problems}</div>}
