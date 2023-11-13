@@ -1,7 +1,9 @@
 # Practice Problem Generator
 Group project for CMPT 276
 
-Setup Instructions:
+Vercel hosting link: https://practice-problem-generator.vercel.app/
+
+Local Setup Instructions:
 
 1. Ensure you meet the following prerequisites:
     1. You've installed the latest version of Node.js 
