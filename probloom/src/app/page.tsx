@@ -9,9 +9,6 @@ const openai = new OpenAI({
 
 export default function Home() {
   // useState to store the questions
-
-    console.log("test123");
-
     async function callOpenAiApi(prompt: string) {
       try {
         const chatCompletion = await openai.chat.completions.create({
