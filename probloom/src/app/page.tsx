@@ -6,20 +6,21 @@ import styles from './page.module.css';
 export default function Home() {
   const [topic, setTopic] = useState('');
   const [problems, setProblems] = useState('');
+  const [solutions, setSolutions] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  async function handleGenerateProblems() {
+  async function handleGeneration(prompt: string, setFunction: any) {
     setLoading(true);
     setError('');
 
     try {
-      const response = await fetch('/api/openai', {
-        method: 'POST',
+      const response = await fetch('/api/openai', { //TODO: logic that ensures there are no repeat questions
+        method: 'POST', //TODO: optimize api call?
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt: `Create practice problems for the following topic: ${topic}` }),
+        body: JSON.stringify({ prompt:prompt }),
       });
 
       if (!response.ok) {
@@ -28,7 +29,7 @@ export default function Home() {
 
       const data = await response.json();
       console.log(data);
-      setProblems(data.data);
+      setFunction(data.data);
     } catch (error) {
       console.error('Error calling /api/openai:', error);
       setError('Failed to generate problems. Please try again later.');
@@ -36,6 +37,15 @@ export default function Home() {
       setLoading(false);
     }
   }
+
+  async function handleGenerateProblems() {
+    handleGeneration(`Create a practice problem for the following topic: ${topic}.`, setProblems);
+  }
+
+  async function handleGenerateSolutions() {
+    handleGeneration(`Create a practice problem for the following topic: ${topic}.`, setProblems);
+  }
+  
 
   return (
     <div className={styles.container}>
@@ -48,10 +58,14 @@ export default function Home() {
           className={styles.input}
         />
         <button onClick={handleGenerateProblems} className={styles.button} disabled={loading}>
-          {loading ? 'Generating...' : 'Generate Problems'}
+          {loading ? 'Generating...' : 'Generate Problem'}
+        </button>
+        <button onClick={handleGenerateSolutions} className={styles.button} disabled={loading}>
+          {loading ? 'Generating...' : 'Generate Problem'}
         </button>
       </div>
       {problems && <div className={styles.problems}>{problems}</div>}
+      {solutions && <div className={styles.problems}>{solutions}</div>}
       {error && <p className={styles.error}>{error}</p>}
     </div>
   );
