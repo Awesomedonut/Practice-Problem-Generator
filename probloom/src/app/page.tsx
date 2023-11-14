@@ -44,7 +44,7 @@ export default function Home() {
     handleGeneration(`Create a short practice problem for the following topic: ${topic}.`, setProblems);
   }
 
-  async function handleGenerateSolutions() { //TODO: bug fix - figured out issue... server related due to vercel's free tier having only 10s
+  async function handleGenerateSolutions() { //TODO: bug fix - figured out issue, server related due to vercel's free tier having only 10s
     handleGeneration(`Create a solution for this problem: ${problems}`, setSolutions);
   }
   
