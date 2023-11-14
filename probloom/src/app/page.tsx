@@ -51,7 +51,9 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+
       <div className={styles.inputGroup}>
+      <h1>Probloom</h1>
         <input
           type="text"
           value={topic}
