@@ -14,6 +14,8 @@ export default function Home() {
     setLoading(true);
     setError('');
 
+    console.log(prompt, setFunction);
+
     try {
       const response = await fetch('/api/openai', { //TODO: logic that ensures there are no repeat questions
         method: 'POST', //TODO: optimize api call?
@@ -39,10 +41,10 @@ export default function Home() {
   }
 
   async function handleGenerateProblems() {
-    handleGeneration(`Create a practice problem for the following topic: ${topic}.`, setProblems);
+    handleGeneration(`Create a short practice problem for the following topic: ${topic}.`, setProblems);
   }
 
-  async function handleGenerateSolutions() {
+  async function handleGenerateSolutions() { //TODO: bug fix
     handleGeneration(`Create a solution for this problem: ${problems}`, setSolutions);
   }
   
