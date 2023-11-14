@@ -19,6 +19,14 @@ Local Setup Instructions:
 5. Run Probloom using `npm run dev`
 6. Open a browser and go to `http://localhost:3000`
 
+Testing Instructions:
+
+To run the integration test:
+`npm run cypress -- --e2e`
+
+To run the unit test:
+`npx jest`
+
 Project Objectives:
 
 Tech Stack:
