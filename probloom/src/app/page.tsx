@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
+import header from './components/header';
 
 export default function Home() {
   const [topic, setTopic] = useState('');
@@ -51,7 +52,6 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-
       <div className={styles.inputGroup}>
       <h1>Probloom</h1>
         <input
