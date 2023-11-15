@@ -3,6 +3,14 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 import header from './components/Header/header';
+import  {Kaushan_Script} from 'next/font/google';
+
+const kaushan = Kaushan_Script({
+  weight: ['400', '400'],
+  style: ['normal'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export default function Home() {
   const [topic, setTopic] = useState('');
@@ -51,26 +59,34 @@ export default function Home() {
   
 
   return (
-    <div className={styles.container}>
-      <div className={styles.inputGroup}>
-      <h1>Probloom</h1>
-        <input
-          type="text"
-          value={topic}
-          onChange={(e) => setTopic(e.target.value)}
-          placeholder="Enter topic"
-          className={styles.input}
-        />
-        <button onClick={handleGenerateProblems} className={styles.button} disabled={loading}>
-          {loading ? 'Generating...' : 'Generate Problem'}
-        </button>
-        <button onClick={handleGenerateSolutions} className={styles.button} disabled={loading}>
-          {loading ? 'Generating...' : 'Generate Solution'}
-        </button>
+  <div className={styles.page}>
+    <div className={styles.content}>
+      <div>
+        <div className={styles.mainTitleDiv}>
+          <h1 className={styles.mainTitle}>Probloom</h1>
+        </div>
+        <div className={styles.inputDiv}>
+          <input
+            type="text"
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            placeholder="Enter topic"
+          /> 
+        </div>
+        <div className={styles.buttonsDiv}>
+          <button onClick={handleGenerateProblems} disabled={loading}>
+            {loading ? 'Generating...' : 'Generate Problem'}
+          </button>
+          <button onClick={handleGenerateSolutions} disabled={loading}>
+            {loading ? 'Generating...' : 'Generate Solution'}
+          </button>
+        </div>
       </div>
-      {problems && <div className={styles.problems}>{problems}</div>}
-      {solutions && <div className={styles.problems}>{solutions}</div>}
-      {error && <p className={styles.error}>{error}</p>}
+      {problems && <div>{problems}</div>}
+      {solutions && <div>{solutions}</div>}
+      {error && <p>{error}</p>}
     </div>
+  </div>
+
   );
 }

@@ -1,4 +1,58 @@
-.main {
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+.page {
+  height: 97vh;
+  margin: 0px;
+  background-color: #625E60
+}
+
+.content {
+  background-color: inherit;
+}
+
+.mainTitleDiv {
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.mainTitle {
+  justify-content: center;
+  font-size: 48px;
+  color: #EFBBD5;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.inputDiv {
+  display: flex;
+  justify-content: center;
+  margin: 30px 20% 30px 20%;
+}
+
+.inputDiv > input {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.buttonsDiv {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.buttonsDiv > button {
+  padding: 10px;
+  border: none;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+}
+/* .main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -108,7 +162,7 @@
   position: relative;
 }
 /* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
@@ -126,7 +180,7 @@
 }
 
 /* Mobile */
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   .content {
     padding: 4rem;
   }
@@ -200,10 +254,10 @@
     );
     z-index: 1;
   }
-}
+} */
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
+/* @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
   }
@@ -226,4 +280,4 @@
   to {
     transform: rotate(0deg);
   }
-}
+}  */
