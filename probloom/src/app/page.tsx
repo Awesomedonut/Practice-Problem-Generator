@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
-import header from './components/header';
+import header from './components/Header/header';
 
 export default function Home() {
   const [topic, setTopic] = useState('');
