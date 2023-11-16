@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+.headerContainer {
+    background-color: #625E60;
+    border-bottom: 0.05pt solid white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.homeLinkContainer {
+    margin: 20px 5% 20px 5%;
+}
+
+.otherLinksContainer {
+    margin: 20px 5% 20px 5%;
+}
+
+.otherLinksContainer .links {
+    margin: 0px 20px 0px 20px;
+}
+.links {
+    border: 1px solid #EFBBD5;
+    border-radius: 5px;
+    color: #000;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: large;
+    padding: 5px 10px 5px 10px;
+}
+
+.links:hover {
+    box-shadow: 0px 0px 25px 0px rgba(239, 187, 213, 0.6);
+}
+
