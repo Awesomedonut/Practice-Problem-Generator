@@ -1,0 +1,57 @@
+.pageContainer {
+  margin: 0px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  background-color: #625E60
+}
+
+.header {
+  font-size: 48px;
+  color: #EFBBD5;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Kaushan Script', cursive;
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  top: 0px;
+
+}
+
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.centeredBox {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: #625E60;
+  width: 1200px;
+  position:relative;
+  top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+}
+
+@media (max-width: 1300px) {
+  .centeredBox {
+    width: 80%; 
+  }
+}
+
+@media (max-width: 1000px) {
+  .centeredBox {
+    width: 60%; 
+  }
+}
+
+@media (max-width: 500px) {
+  .centeredBox {
+    height: 80%;
+  }
+}
