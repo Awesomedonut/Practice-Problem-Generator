@@ -4,6 +4,7 @@ import { useState } from 'react';
 import styles from './page.module.css';
 import header from './components/Header/header';
 import  {Kaushan_Script} from 'next/font/google';
+import { useEffect } from 'react';
 
 const kaushan = Kaushan_Script({
   weight: ['400', '400'],
@@ -43,7 +44,14 @@ export default function Home() {
       setFunction(data.data);
     } catch (error) {
       console.error('Error calling /api/openai:', error);
-      setError('Failed to generate problems. Please try again later.');
+      setError('There was an error generating a response. Please try again later.');
+      if (error) {
+        const timer = setTimeout(() => {
+          setError('');
+        }, 2000); // Adjust the delay to match the transition duration
+  
+        return () => clearTimeout(timer);
+      }
     } finally {
       setLoading(false);
     }
@@ -63,8 +71,11 @@ export default function Home() {
     <div className={styles.content}>
       <div>
         <div className={styles.mainTitleDiv}>
+          <img src="FlowerLogo.png" height="80"/>
           <h1 className={styles.mainTitle}>Probloom</h1>
+          <p className={styles.subtitle}>Let Your Problems Blossom</p>
         </div>
+        {error && <p className={styles.error}>{error}</p>}
         <div className={styles.inputDiv}>
           <input
             type="text"
@@ -84,7 +95,6 @@ export default function Home() {
       </div>
       {problems && <div>{problems}</div>}
       {solutions && <div>{solutions}</div>}
-      {error && <p>{error}</p>}
     </div>
   </div>
 

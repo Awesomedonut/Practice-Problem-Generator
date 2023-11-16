@@ -1,0 +1,8 @@
+.page {
+    height: 97vh;
+    margin: 0;
+    background-image: url('/BlacknWhite.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+  }
