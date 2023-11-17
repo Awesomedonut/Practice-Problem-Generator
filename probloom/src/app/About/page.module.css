@@ -1,57 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 .pageContainer {
   margin: 0px auto;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 1.5;
-  background-color: #625E60
+  background-image: linear-gradient(to bottom, #625E60, #ffd3cb, #ced3cb);
+  overflow: scroll;
 }
 
 .header {
-  font-size: 48px;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 800;
   color: #EFBBD5;
   justify-content: center;
   text-align: center;
   font-family: 'Kaushan Script', cursive;
-  margin-top: 10px;
-  padding-top: 10px;
-  margin-bottom: 10px;
   position: relative;
-  top: 0px;
+  top: 50px;
+}
 
+.header2 {
+  font-size: 80px;
+  color: black;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Kaushan Script', cursive;
+  position: relative;
+  top: 200px;
 }
 
 .mainContent {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjust the height as needed */
+  height: 100vh; 
 }
 
 .centeredBox {
   background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  border: #625E60;
+  padding: 30px;
+  border-radius: 40px;
+  border: 0.004px solid #625E60;
   width: 1200px;
   position:relative;
-  top: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+  box-shadow: 15px 20px 5px rgba(0, 0, 0, 0.1);
+  top: 30px;
+  overflow: hidden;
+
+}
+
+.pageContainer .imageContainer1 img {
+  position: absolute;
+  height: 30x;
+  width: 300px;
+  left: 400px;
+  top: 200px;
+}
+
+.pageContainer .imageContainer2 img {
+  position: absolute;
+  height: 30x;
+  width: 300px;
+  right: 380px;
+  top: 220px;
+  transform: rotate(150deg);
+}
+
+
+@media (max-width: 1700px) {
+  .imageContainer1 img {
+    display: none;
+  }
+
+  .imageContainer2 {
+    display: none;
+  }
 }
 
 @media (max-width: 1300px) {
   .centeredBox {
     width: 80%; 
+    top: 100px;
+  
+  }
+}
+
+@media (max-width: 1100px) {
+  .centeredBox {
+    width: 80%; 
+    top: 140px;
+  
   }
 }
 
 @media (max-width: 1000px) {
   .centeredBox {
     width: 60%; 
+    top: 290px;
   }
+
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
   .centeredBox {
     height: 80%;
+    top: 160px;
   }
 }
