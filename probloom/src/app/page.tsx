@@ -57,9 +57,7 @@ export default function Home() {
       }
 
       const data = await response.json();
-      console.log(data.data);
-      setFunction(JSON.parse(data.data));
-      console.log(Array.isArray(problems));
+      setFunction(data.data);
     } catch (error) {
       console.error('Error calling /api/openai:', error);
       setError('There was an error generating a response. Please try again later.');
@@ -87,10 +85,15 @@ export default function Home() {
     "questionType": "multipleChoice or text", 
     "choices":["choice 1","choice 2","choice 3","choice 4"], 
     "answer":"answer here"}]
-    The JSON response:`, setProblems);
+    The JSON response:`, setUpQuiz);
   }
 
-  async function handleGenerateSolutions() { //TODO: bug fix - figured out issue, server related due to vercel's free tier having only 10s
+  const setUpQuiz = (responseOjbect: any) =>{
+    setProblems(JSON.parse(responseOjbect));
+    console.log(Array.isArray(JSON.parse(responseOjbect)));    
+  }
+
+  async function checkUserAnswers() { //TODO: bug fix - figured out issue, server related due to vercel's free tier having only 10s
     // handleGeneration(`Create a solution for this problem: ${problems}`, setSolutions);
   }
   const handleAnswerChange = (index: any, value: any) => {
@@ -98,9 +101,21 @@ export default function Home() {
   };
 
   const handleSubmit = () => {
-    console.log('User Answers:', userAnswers);
-    // Add submission logic here
+    const userAnswersEntries = Object.entries(userAnswers);
+    console.log('User Answers:', userAnswersEntries);
+    console.log('Questions:', problems.map((problem) => problem.question));
+  
+    const userAnswersText = userAnswersEntries.map(([index, answer]) => `Answer ${parseInt(index) + 1}: ${answer}`).join(', ');
+    const questionsText = problems.map((problem, index) => `Question ${index + 1}: ${problem.question}`).join(', ');
+    const prompt = 
+    `I have ${userAnswersEntries.length} answers: ${userAnswersText} 
+    for these ${problems.length} questions: ${questionsText}
+    please check my answers and give me feedback
+    `;
+    console.log(prompt);
+    handleGeneration(prompt , setSolutions);
   };
+  
 
   return (
   <div className={styles.page}>
@@ -135,9 +150,6 @@ export default function Home() {
         <div className={styles.buttonsDiv}>
           <button onClick={handleGenerateProblems} disabled={loading}>
             {loading ? 'Generating...' : 'Generate Problem'}
-          </button>
-          <button onClick={handleGenerateSolutions} disabled={loading}>
-            {loading ? 'Generating...' : 'Generate Solution'}
           </button>
         </div>
       </div>
@@ -178,6 +190,9 @@ export default function Home() {
                 </div>
               ))}
               <button onClick={handleSubmit}>Submit Answers</button>
+              <button onClick={checkUserAnswers} disabled={loading}>
+            {loading ? 'Checking...' : 'Check Answers'}
+          </button>
             </div>
           )}
         </div>
