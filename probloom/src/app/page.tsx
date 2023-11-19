@@ -5,6 +5,8 @@ import styles from './page.module.css';
 import header from './components/Header/header';
 import  {Kaushan_Script} from 'next/font/google';
 import { useEffect } from 'react';
+import { TextQuestion } from './interfaces/TextQuestion';
+import { MultipleChoiceQuestion } from './interfaces/MultipleChoiceQuestion';
 
 const kaushan = Kaushan_Script({
   weight: ['400', '400'],
@@ -12,19 +14,6 @@ const kaushan = Kaushan_Script({
   subsets: ['latin'],
   display: 'swap',
 })
-
-interface TextQuestion {
-  question: string;
-  questionType: 'text';
-  answer: string;
-}
-
-interface MultipleChoiceQuestion {
-  question: string;
-  questionType: 'multipleChoice';
-  choices: string[];
-  answer: string;
-}
 
 type Problem = TextQuestion | MultipleChoiceQuestion;
 
@@ -36,7 +25,7 @@ export default function Home() {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
+//TODO: move this function to another file
   async function handleGeneration(prompt: string, setFunction: any) {
     setLoading(true);
     setError('');
@@ -117,7 +106,7 @@ export default function Home() {
   };
   
 
-  return (
+  return (//TODO: refactor and simplify this code
   <div className={styles.page}>
     <div className={styles.content}>
       <div>
@@ -156,7 +145,6 @@ export default function Home() {
       {problems && Array.isArray(problems) && <div>
         <div className={styles.page}>
       <div className={styles.content}>
-        {/* Existing JSX elements... */}
         <div className={styles.quizSection}>
           {problems.length > 0 && (
             <div>
