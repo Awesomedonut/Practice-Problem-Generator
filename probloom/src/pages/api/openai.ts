@@ -16,7 +16,7 @@ export default async function handler(req: any, res: any) {
 
     const response = await openai.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4',
       max_tokens: 256,
     });
 
