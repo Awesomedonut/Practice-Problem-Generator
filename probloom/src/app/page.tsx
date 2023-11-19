@@ -88,13 +88,9 @@ export default function Home() {
           <button onClick={handleGenerateProblems} disabled={loading}>
             {loading ? 'Generating...' : 'Generate Problem'}
           </button>
-          <button onClick={handleGenerateSolutions} disabled={loading}>
-            {loading ? 'Generating...' : 'Generate Solution'}
-          </button>
         </div>
       </div>
       {problems && <div>{problems}</div>}
-      {solutions && <div>{solutions}</div>}
     </div>
   </div>
 
