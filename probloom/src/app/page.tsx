@@ -5,8 +5,12 @@ import styles from './page.module.css';
 import header from './components/Header/header';
 import  {Kaushan_Script} from 'next/font/google';
 import { useEffect } from 'react';
+
+import Link from 'next/link';
+
 import { Problem } from './types/Problem';
 import QuizSection from './components/QuizSection';
+
 
 const kaushan = Kaushan_Script({
   weight: ['400', '400'],
@@ -109,7 +113,7 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.content}>
         <div className={styles.mainTitleDiv}>
-          <img src="FlowerLogo.png" height="80" />
+          <img src="FlowerLogo.png" height="80"/>
           <h1 className={styles.mainTitle}>Probloom</h1>
           <p className={styles.subtitle}>Let Your Problems Blossom</p>
         </div>
