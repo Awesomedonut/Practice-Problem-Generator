@@ -20,13 +20,11 @@
 }
 .links {
     color: rgb(211, 200, 200);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: large;
-    padding: 5px 10px 5px 10px;
+    /*border: 1px solid #EFBBD5;*/
+    /*border-radius: 5px;*/
+    color: rgb(211, 200, 200);
+    /*background-color: rgb(248, 9, 9);*/
 }
-
-
 .links:hover {
     box-shadow: 0px 3px 1px -1px rgba(239, 187, 213, 0.6);
 }
@@ -52,4 +50,3 @@
   .dropdown:hover .dropdownContent {
     display: block;
   }
-

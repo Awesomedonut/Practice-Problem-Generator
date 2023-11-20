@@ -59,6 +59,7 @@
   padding: 10px;
   border: none;
   color: rgb(0, 0, 0);
+
   background-color: white;
   border-radius: 10px;
   font-family: 'Roboto', sans-serif;
@@ -73,7 +74,6 @@
   cursor: pointer;
 }
 
-
 .buttonLink {
   padding: 10px;
   border: none;
@@ -85,9 +85,17 @@
   font-weight: 300;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
+
 }
 
 .buttonLink:hover {
+  box-shadow: 0px 0px 25px 0px rgba(239, 187, 213, 0.6);
+  cursor: pointer;
+}
+
+}
+
+.buttonsDiv > button:hover {
   box-shadow: 0px 0px 25px 0px rgba(239, 187, 213, 0.6);
   cursor: pointer;
 }
