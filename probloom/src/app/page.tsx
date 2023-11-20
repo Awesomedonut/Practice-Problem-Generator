@@ -80,6 +80,7 @@ export default function Home() {
   }
 
   const setUpQuiz = (responseOjbect: any) =>{
+    console.log(JSON.parse(responseOjbect));    
     setProblems(JSON.parse(responseOjbect));
     console.log(Array.isArray(JSON.parse(responseOjbect)));    
   }
@@ -133,30 +134,8 @@ export default function Home() {
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>
       </div>
       {solutions && <div>{solutions}</div>}
+      {problems && <div>{problems.map((problem, index) => (          
+            <p>{problem.question}</p>))}</div>}
     </div>
   );
 }
-
-// function QuizSection({ problems : Problem[], userAnswers, handleAnswerChange }) {
-//   return (
-//     <div className={styles.quizSection}>
-//       {problems.map((problem, index) => (
-//         <div key={index} className={styles.question}>
-//           <p>{problem.question}</p>
-//           {problem.questionType === 'text' ? (
-//             <input type="text" value={userAnswers[index] || ''} onChange={(e) => handleAnswerChange(index, e.target.value)} />
-//           ) : (
-//             problem.choices.map((choice, choiceIndex) => (
-//               <label key={choiceIndex}>
-//                 <input type="radio" name={`question${index}`} value={choice} checked={userAnswers[index] === choice} onChange={(e) => handleAnswerChange(index, e.target.value)} />
-//                 {choice}
-//               </label>
-//             ))
-//           )}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
-// [ { "question": "What does the keyword 'static' mean in Java?", "questionType": "text", "answer": "A 'static' member belongs to the type itself, not to any instance of the type." }, { "question": "What is the main purpose of Garbage Collection in Java?", "questionType": "text", "answer": "Garbage Collection is used to automatically manage the memory and clean up unused objects to free memory space." } ]
-// [{ "question": "What is the correct way to instantiate an object in Java?", "questionType": "multipleChoice", "choices":["Object object = new Object()", "Object = new Object()", "new Object = Object()", "Object() new = Object"], "answer":"Object object = new Object()" }, { "question": "The process of converting the code into byte code in Java is called ________.", "questionType": "multipleChoice", "choices":["Compilation", "Execution", "Interpretation", "Translation"], "answer":"Compilation" }]
