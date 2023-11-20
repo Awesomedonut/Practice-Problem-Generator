@@ -5,6 +5,7 @@ import styles from './page.module.css';
 import header from './components/Header/header';
 import  {Kaushan_Script} from 'next/font/google';
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 const kaushan = Kaushan_Script({
   weight: ['400', '400'],
@@ -85,14 +86,20 @@ export default function Home() {
           /> 
         </div>
         <div className={styles.buttonsDiv}>
-          <button onClick={handleGenerateProblems} disabled={loading}>
-            {loading ? 'Generating...' : 'Generate Problem'}
-          </button>
+          <Link href="/Output">
+             <button className={styles.buttonLink}>Generate Problems</button>
+          </Link>
         </div>
       </div>
       {problems && <div>{problems}</div>}
     </div>
-  </div>
-
+    </div>
   );
 }
+
+/* handle generating problem error
+<div className={styles.buttonsDiv}>
+          <button onClick={handleGenerateProblems} disabled={loading}>
+            {loading ? 'Generating...' : 'Generate Problem'}
+          </button>
+        </div>*/
