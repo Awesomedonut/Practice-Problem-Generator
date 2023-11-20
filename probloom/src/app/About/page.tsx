@@ -37,7 +37,7 @@ const MyPage = () => {
      </div>
      <div className={styles.mainContent}>
        <div className={styles.centeredBox}>
-         <p>Welcome to Probloom! Probloom is an AI-powered web application designed to generate relevant practice problems tailored to the user's inputs. This platform offers the flexibility of accepting inputs in both plain text and
+         <p>Welcome to Probloom! Probloom is an AI-powered web application designed to generate relevant practice problems tailored to the users inputs. This platform offers the flexibility of accepting inputs in both plain text and
     PDF formats. Correspondingly, the application provides outputs as either plain text or a downloadable PDF version.
            Moreover, Probloom can also generate solutions, enabling users to verify their answers effectively.
          </p>

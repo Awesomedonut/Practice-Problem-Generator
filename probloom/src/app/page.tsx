@@ -152,8 +152,6 @@ export default function Home() {
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>
       </div>
       {solutions && <div>{solutions}</div>}
-      {problems && <div>{problems.map((problem, index) => (          
-            <p>{problem.question}</p>))}</div>}
     </div>
   );
 }
