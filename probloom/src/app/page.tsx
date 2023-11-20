@@ -9,7 +9,8 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 
 import { Problem } from './types/Problem';
-import QuizSection from './components/QuizSection';
+import QuizSection from './components/Quiz/QuizSection';
+import { set } from 'cypress/types/lodash';
 
 
 const kaushan = Kaushan_Script({
@@ -27,6 +28,23 @@ export default function Home() {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    setProblems([
+      {
+        question: "question here",
+        questionType: "multipleChoice",
+        choices: ["choice 1", "choice 2", "choice 3", "choice 4"],
+        answer: "answer here"
+      },
+      {
+        question: "question here",
+        questionType: "text",
+        answer: "answer here"
+      }
+    ]);
+  }, []);
+
 //TODO: move this function to another file
   async function handleGeneration(prompt: string, setFunction: any) {
     setLoading(true);
