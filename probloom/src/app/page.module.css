@@ -93,8 +93,6 @@
   cursor: pointer;
 }
 
-}
-
 .buttonsDiv > button:hover {
   box-shadow: 0px 0px 25px 0px rgba(239, 187, 213, 0.6);
   cursor: pointer;
