@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-/*
-.page {
-  height: 97vh;
-  margin: 0px;
-  background-color: #625E60;
-}
-*/
+
 .page {
   height: 97vh;
   margin: 0;
@@ -50,7 +44,6 @@
   border: none;
   padding: 13px;
   border-radius: 15px;
-
 
 }
 
