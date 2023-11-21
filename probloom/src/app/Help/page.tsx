@@ -4,6 +4,7 @@ import styles from './page.module.css';
 export default function Help() {
     return (
          <div className={styles.page}>
+            <img src="FlowerLogo.png" height="80"/>
             <h1 className={styles.pageTitle}>How can we help you?</h1>
             <div className={styles.pageContainer}>
                 <div className={styles.boxContainer}>
