@@ -135,3 +135,31 @@
 .dropdown option {
   font-size: 16px;
 }
+
+.TopicBox {
+  left:100px;
+  width: 1200px; 
+  height: 200px;
+  background-color: rgba(39, 36, 36, 0.885);
+  border: 1px solid rgba(39, 36, 36, 0.885); 
+  border-radius: 10px; 
+  text-align: center;
+  padding: 20px;
+  margin-left: 130px;
+  margin-top:250px
+
+}
+
+.OutputBox {
+ 
+  left:1000px;
+  width: 1200px; 
+  height: 1000px;
+  background-color: rgba(39, 36, 36, 0.885);
+  border: 1px solid rgba(39, 36, 36, 0.885); 
+  border-radius: 10px; 
+  text-align: center;
+  padding: 20px;
+  margin-left: 130px;
+  margin-top:50px
+}
