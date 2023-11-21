@@ -10,10 +10,11 @@
 .page {
   height: 97vh;
   margin: 0;
-  background-image: url('/FlowerBackground.jpg'); 
+  background-image: url('/IMG_1034.jpg'); 
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
+  height: 3100px;
 }
 
 .content {
