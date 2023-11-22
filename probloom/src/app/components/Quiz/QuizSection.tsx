@@ -22,6 +22,7 @@ type QuizSectionProps = {
               />
             ) : (
               problem.choices.map((choice, choiceIndex) => (
+                <div className={styles.choice}>
                 <label key={choiceIndex}>
                   <input
                     type="radio"
@@ -32,6 +33,7 @@ type QuizSectionProps = {
                   />
                   {choice}
                 </label>
+                </div>
               ))
             )}
           </div>

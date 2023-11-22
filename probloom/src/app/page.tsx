@@ -30,7 +30,7 @@ export default function Home() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setTopic("topic here");
+    setTopic("java");
     setSolutions("solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here ");
     setProblems([
       {
