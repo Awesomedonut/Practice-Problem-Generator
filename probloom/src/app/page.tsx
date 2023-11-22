@@ -30,6 +30,7 @@ export default function Home() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    setTopic("topic here");
     setSolutions("solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here ");
     setProblems([
       {
@@ -150,11 +151,17 @@ export default function Home() {
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
         <div className={styles.quizSection}>
-        <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
-        <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
-        {solutions && <div>{solutions}</div>}
         </div>
       </div>
+      <div className={styles.TopicBox}>
+        <p>{topic}</p>
+      </div>
+      <div className={styles.OutputBox}>
+        <p>This where the question goes.</p>
+        <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
+        <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
+      </div>
+      {solutions && <div>{solutions}</div>}
     </div>
   );
 }
