@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../../page.module.css'
 import { Problem } from '../../types/Problem';
+import styles from './styles.module.css'
 type QuizSectionProps = {
     problems: Problem[];
     userAnswers: string[];
@@ -9,10 +9,11 @@ type QuizSectionProps = {
   
   const QuizSection: React.FC<QuizSectionProps> = ({ problems, userAnswers, handleAnswerChange }) => {
     return (      
-      <div className={styles.inputDiv}>
+      <div className={styles.quizSection}>
+        <h1>Quiz</h1>
         {problems.map((problem, index) => (
-          <div key={index} className={styles.question}>
-            <p>Q{index+1}. {problem.question}</p>
+          <div key={index} className={styles.questionSection}>
+            <p  className={styles.question}>Q{index+1}. {problem.question}</p>
             {problem.questionType === 'text' ? (
               <input
                 type="text"

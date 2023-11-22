@@ -109,6 +109,11 @@
   opacity: 0;
 }
 
+.quizSection {
+  background-color: white; /* Set the background color to white */
+  padding: 10px;
+  margin: 10px;
+}
 /* .main {
   display: flex;
   flex-direction: column;

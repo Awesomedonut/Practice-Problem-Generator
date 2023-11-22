@@ -30,6 +30,7 @@ export default function Home() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    setSolutions("solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here ");
     setProblems([
       {
         question: "question here",
@@ -148,10 +149,12 @@ export default function Home() {
         <div className={styles.buttonsDiv}>
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
+        <div className={styles.quizSection}>
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
-        <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>
+        <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
+        {solutions && <div>{solutions}</div>}
+        </div>
       </div>
-      {solutions && <div>{solutions}</div>}
     </div>
   );
 }
