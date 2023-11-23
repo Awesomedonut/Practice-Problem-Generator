@@ -1,5 +1,5 @@
 describe('Navigation', () => {
-    it('should navigate to the about page', () => {
+    it('should contain Probloom in heading', () => {
       // Start from the index page
       cy.visit('http://localhost:3000/')
       cy.get('h1').contains('Probloom')
