@@ -31,7 +31,13 @@ export default function Home() {
 
   useEffect(() => {
     setTopic("java");
-    setSolutions("solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here solutions here ");
+    setSolutions(`
+    solutions here solutions here solutions here solutions here solutions here solutions 
+    here solutions here solutions here solutions here solutions here solutions here solutions 
+    here solutions here solutions here solutions here solutions here solutions here solutions 
+    here solutions here solutions here solutions here solutions here solutions here solutions 
+    here solutions here solutions here solutions here solutions here solutions here solutions 
+    here solutions here solutions here solutions here solutions here solutions here solutions here `);
     setProblems([
       {
         question: "question here",
@@ -90,7 +96,8 @@ export default function Home() {
     the question type is ${questionType}. 
  if the question type is multipleChoice, give me choices,
     and answer. if the question type is text, only give me answer.
-    Do not include any explanations, only provide a  RFC8259 compliant JSON response  following this format without deviation.
+    Do not include any explanations, only provide a  RFC8259 compliant JSON response 
+    following this format without deviation.
     [{
       "question": "question here", 
     "questionType": "multipleChoice or text", 
