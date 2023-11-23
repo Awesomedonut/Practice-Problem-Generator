@@ -6,6 +6,9 @@ import header from './components/Header/header';
 import  {Kaushan_Script} from 'next/font/google';
 import { useEffect } from 'react';
 
+import type { NextPage } from 'next';
+import { getDocument } from 'pdfjs-dist';
+
 import Link from 'next/link';
 
 import { Problem } from './types/Problem';
@@ -28,6 +31,7 @@ export default function Home() {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [extractedText, setExtractedText] = useState<string>('');
 
   useEffect(() => {
     setProblems([
@@ -151,7 +155,7 @@ export default function Home() {
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>
       </div>
-      {solutions && <div>{solutions}</div>}
+      {solutions && <div>{solutions}</div>}      
     </div>
   );
 }
