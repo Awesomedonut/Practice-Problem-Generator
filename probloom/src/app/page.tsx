@@ -53,6 +53,21 @@ export default function Home() {
     ]);
   }, []);
 
+  //handle file upload
+const handleSubmitPDF = async (event: any) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('file', event.target.file.files[0]);
+
+    const response = await fetch('/api/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await response.json();
+    console.log(data);
+};
+
 //TODO: move this function to another file
   async function handleGeneration(prompt: string, setFunction: any) {
     setLoading(true);
@@ -169,6 +184,12 @@ export default function Home() {
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
       </div>
       {solutions && <div>{solutions}</div>}
+
+      {/*testing for submission> */}
+      <form onSubmit={handleSubmitPDF}>
+        <input type="file" name="file" accept="application/pdf" />
+        <button type="submit">Upload and Extract Text</button>
+    </form>
     </div>
   );
 }
