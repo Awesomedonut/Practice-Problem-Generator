@@ -21,6 +21,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ problems, userAnswers, handle
                 type="text"
                 value={userAnswers[index] || ''}
                 onChange={(e) => handleAnswerChange(index, e.target.value)}
+                style={{ width: '70%', padding: '10px', borderRadius: '16px'}}
               />
             ) : (
               problem.choices.map((choice, choiceIndex) => (
