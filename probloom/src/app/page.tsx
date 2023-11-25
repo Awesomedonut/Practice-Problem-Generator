@@ -126,7 +126,7 @@ export default function Home() {
           <h1 className={styles.mainTitle}>Probloom</h1>
           <p className={styles.subtitle}>Let Your Problems Blossom</p>
         </div>
-        {error && <p className={styles.error}>{error}</p>}
+        {error && <p className={styles.error}>{error}</p>} 
         <div className={styles.inputDiv}>
           <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
@@ -138,14 +138,11 @@ export default function Home() {
         <div className={styles.buttonsDiv}>
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
-        <div className={styles.quizSection}>
-        </div>
       </div>
       <div className={styles.TopicBox}>
         <p>{topic}</p>
       </div>
       <div className={styles.OutputBox}>
-        <p>This where the question goes.</p>
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
       </div>
