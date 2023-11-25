@@ -26,11 +26,11 @@ jobs:
       working-directory: ./probloom
 
     - name: Run Jest Unit Tests
-      run: npm test # Make sure this script runs Jest tests in your package.json
+      run: npm test -- --watchAll=false
       working-directory: ./probloom
 
     - name: Build
-      run: npm run build # Adjust this command based on your build process
+      run: npm run build
       working-directory: ./probloom
 
     - name: Install Cypress Dependencies
@@ -40,9 +40,7 @@ jobs:
     - name: Run Cypress Integration Tests
       uses: cypress-io/github-action@v2
       with:
-        start: npm start # Command to start your server
-        wait-on: 'http://localhost:3000' # Adjust the URL/port as necessary
-        wait-on-timeout: 60 # Timeout in seconds for your server to start
+        start: npm start # Command to start server
+        wait-on: 'https://practice-problem-generator.vercel.app/' # Adjust the URL/port as necessary
+        wait-on-timeout: 120 # Timeout in seconds for server to start
         working-directory: ./probloom
-
-    # Add additional steps for deployment or other tasks if needed
