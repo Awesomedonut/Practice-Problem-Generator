@@ -1,0 +1,40 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '21.1.0'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Jest Unit Tests
+      run: npm test # Make sure this script runs Jest tests in your package.json
+
+    - name: Build
+      run: npm run build # Adjust this command based on your build process
+
+    - name: Install Cypress Dependencies
+      run: npm install cypress
+
+    - name: Run Cypress Integration Tests
+      uses: cypress-io/github-action@v2
+      with:
+        start: npm start # Command to start your server
+        wait-on: 'http://localhost:3000' # Adjust the URL/port as necessary
+        wait-on-timeout: 60 # Timeout in seconds for your server to start
+
+    # Add additional steps for deployment or other tasks if needed
