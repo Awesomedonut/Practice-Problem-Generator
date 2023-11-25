@@ -32,8 +32,9 @@
     width: 250px;
     height: 250px;
     margin: 10px;
-    background-color: #f5f9fcc5;
+    background-color: #f5f9fce2;
     border-radius: 40px;
+    padding: 10px
   }
   
   .boxContent {
@@ -65,13 +66,14 @@
     width: 250px;
     height: 250px;
     margin: 10px;
-    background-color: #f8e5f4da;
+    background-color: #f8e5f4cc;
     border-radius: 40px;
+    padding: 10px;
   }
   
   
   .heading {
-    margin-bottom: 10px;
+    margin-bottom: 19px;
 
   }
   
@@ -79,4 +81,16 @@
     font-size: 15px; 
     width: 220px;
     margin: 0;
+    text-align: left;
   }
+
+ .contactus {
+  width: 25%;
+  background-color: #f5f9fce2;
+  color: black;
+  text-align: center;
+  border-radius: 20px;
+  height: 65px;
+  padding:12px;
+  margin-top: 2%;
+}
