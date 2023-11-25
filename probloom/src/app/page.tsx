@@ -135,7 +135,6 @@ const handleSubmitPDF = async (event: any) => {
     handleGeneration(prompt , setSolutions);
   };
   
-
   return (
     <div className={styles.page}>
       <div className={styles.content}>
@@ -161,14 +160,12 @@ const handleSubmitPDF = async (event: any) => {
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
 
-
          {/*added this to template the downloads button*/}
         <div>
           <button>download</button>
         </div>
 
         <div className={styles.quizSection}>
-
 
       </div>
       <div className={styles.TopicBox}>
