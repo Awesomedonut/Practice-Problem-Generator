@@ -33,16 +33,16 @@ jobs:
       run: npm run build # Adjust this command based on your build process
       working-directory: ./probloom
 
-    # - name: Install Cypress Dependencies
-    #   run: npm install cypress
-    #   working-directory: ./probloom
+    - name: Install Cypress Dependencies
+      run: npm install cypress
+      working-directory: ./probloom
 
-    # - name: Run Cypress Integration Tests
-    #   uses: cypress-io/github-action@v2
-    #   with:
-    #     start: npm start # Command to start your server
-    #     wait-on: 'http://localhost:3000' # Adjust the URL/port as necessary
-    #     wait-on-timeout: 60 # Timeout in seconds for your server to start
-    #     working-directory: ./probloom
+    - name: Run Cypress Integration Tests
+      uses: cypress-io/github-action@v2
+      with:
+        start: npm start # Command to start your server
+        wait-on: 'http://localhost:3000' # Adjust the URL/port as necessary
+        wait-on-timeout: 60 # Timeout in seconds for your server to start
+        working-directory: ./probloom
 
     # Add additional steps for deployment or other tasks if needed
