@@ -4,11 +4,13 @@
     background-color: rgba(33, 31, 31, 0.885); 
     display: flex; /* Use flexbox to vertically list each question section */
     flex-direction: column; /* Set the flex direction to column */
+    font-family:Arial, Helvetica, sans-serif;
   }
   
  .questionSection {
     padding: 10px; /* Add padding to the question section */
     margin: 10px; /* Add margin to the question section */
+ 
   }
    /* 
   .question {
