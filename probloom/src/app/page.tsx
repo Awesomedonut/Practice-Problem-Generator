@@ -2,23 +2,10 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
-import header from './components/Header/header';
-import  {Kaushan_Script} from 'next/font/google';
 import { useEffect } from 'react';
-
-import Link from 'next/link';
 
 import { Problem } from './types/Problem';
 import QuizSection from './components/Quiz/QuizSection';
-import { set } from 'cypress/types/lodash';
-
-
-const kaushan = Kaushan_Script({
-  weight: ['400', '400'],
-  style: ['normal'],
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 export default function Home() {
   const [topic, setTopic] = useState('');
@@ -53,6 +40,7 @@ export default function Home() {
     ]);
   }, []);
 
+
   //handle file upload
 const handleSubmitPDF = async (event: any) => {
     event.preventDefault();
@@ -69,6 +57,7 @@ const handleSubmitPDF = async (event: any) => {
 };
 
 //TODO: move this function to another file
+
   async function handleGeneration(prompt: string, setFunction: any) {
     setLoading(true);
     setError('');
@@ -76,8 +65,8 @@ const handleSubmitPDF = async (event: any) => {
     console.log(prompt, setFunction);
 
     try {
-      const response = await fetch('/api/openai', { //TODO: logic that ensures there are no repeat questions
-        method: 'POST', //TODO: optimize api call?
+      const response = await fetch('/api/openai', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -121,15 +110,10 @@ const handleSubmitPDF = async (event: any) => {
     The JSON response:`, setUpQuiz);
   }
 
-  const setUpQuiz = (responseOjbect: any) =>{
-    console.log(JSON.parse(responseOjbect));    
-    setProblems(JSON.parse(responseOjbect));
-    console.log(Array.isArray(JSON.parse(responseOjbect)));    
+  const setUpQuiz = (responseOjbect: any) =>{  
+    setProblems(JSON.parse(responseOjbect));  
   }
 
-  async function checkUserAnswers() { //TODO: bug fix - figured out issue, server related due to vercel's free tier having only 10s
-    // handleGeneration(`Create a solution for this problem: ${problems}`, setSolutions);
-  }
   const handleAnswerChange = (index: any, value: any) => {
     setUserAnswers({ ...userAnswers, [index]: value });
     
@@ -160,7 +144,7 @@ const handleSubmitPDF = async (event: any) => {
           <h1 className={styles.mainTitle}>Probloom</h1>
           <p className={styles.subtitle}>Let Your Problems Blossom</p>
         </div>
-        {error && <p className={styles.error}>{error}</p>}
+        {error && <p className={styles.error}>{error}</p>} 
         <div className={styles.inputDiv}>
 
           {/*added this to template file input tag */}
@@ -177,6 +161,7 @@ const handleSubmitPDF = async (event: any) => {
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
 
+
          {/*added this to template the downloads button*/}
         <div>
           <button>download</button>
@@ -184,15 +169,16 @@ const handleSubmitPDF = async (event: any) => {
 
         <div className={styles.quizSection}>
         </div>
+
       </div>
       <div className={styles.TopicBox}>
         <p>{topic}</p>
       </div>
       <div className={styles.OutputBox}>
-        <p>This where the question goes.</p>
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
       </div>
+
       {solutions && <div>{solutions}</div>}
 
       {/*testing for submission> */}
@@ -201,5 +187,14 @@ const handleSubmitPDF = async (event: any) => {
         <button type="submit">Upload and Extract Text</button>
     </form>
     </div>
+
+      <div className={styles.SolutionBox}>
+        {solutions && <div>{solutions}</div>}
+      </div>
+      <div className={styles.bottomContainer}>
+
+      </div>
+      </div>
+
   );
 }
