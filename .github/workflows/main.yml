@@ -38,7 +38,7 @@ jobs:
       working-directory: ./probloom
 
     - name: Run Cypress Integration Tests
-      uses: cypress-io/github-action@v2
+      uses: cypress-io/github-action@v4.1.0
       with:
         start: npm run start # Replace with your custom server start script
         wait-on: 'http://localhost:3000'
