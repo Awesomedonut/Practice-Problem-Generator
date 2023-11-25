@@ -40,6 +40,24 @@ export default function Home() {
     ]);
   }, []);
 
+
+  //handle file upload
+const handleSubmitPDF = async (event: any) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('file', event.target.file.files[0]);
+
+    const response = await fetch('/api/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await response.json();
+    console.log(data);
+};
+
+//TODO: move this function to another file
+
   async function handleGeneration(prompt: string, setFunction: any) {
     setLoading(true);
     setError('');
@@ -128,6 +146,10 @@ export default function Home() {
         </div>
         {error && <p className={styles.error}>{error}</p>} 
         <div className={styles.inputDiv}>
+
+          {/*added this to template file input tag */}
+          <input type="file" accept="application/pdf"></input>
+          
           <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
             <option value="">Select Question Type</option>
@@ -138,6 +160,16 @@ export default function Home() {
         <div className={styles.buttonsDiv}>
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
+
+
+         {/*added this to template the downloads button*/}
+        <div>
+          <button>download</button>
+        </div>
+
+        <div className={styles.quizSection}>
+        </div>
+
       </div>
       <div className={styles.TopicBox}>
         <p>{topic}</p>
@@ -146,6 +178,16 @@ export default function Home() {
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
       </div>
+
+      {solutions && <div>{solutions}</div>}
+
+      {/*testing for submission> */}
+      <form onSubmit={handleSubmitPDF}>
+        <input type="file" name="file" accept="application/pdf" />
+        <button type="submit">Upload and Extract Text</button>
+    </form>
+    </div>
+
       <div className={styles.SolutionBox}>
         {solutions && <div>{solutions}</div>}
       </div>
@@ -153,5 +195,6 @@ export default function Home() {
 
       </div>
       </div>
+
   );
 }
