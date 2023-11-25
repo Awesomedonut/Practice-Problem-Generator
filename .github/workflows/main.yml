@@ -40,7 +40,8 @@ jobs:
     - name: Run Cypress Integration Tests
       uses: cypress-io/github-action@v2
       with:
-        start: npm start # Command to start server
-        wait-on: 'https://practice-problem-generator.vercel.app/' # Adjust the URL/port as necessary
-        wait-on-timeout: 120 # Timeout in seconds for server to start
+        start: npm run start # Replace with your custom server start script
+        wait-on: 'http://localhost:3000'
+        wait-on-timeout: 60
+        config-file: cypress.config.ts # Update this line
         working-directory: ./probloom
