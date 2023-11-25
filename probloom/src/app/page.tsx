@@ -1,9 +1,12 @@
 'use client';
 
+import { getDocument } from 'pdfjs-dist';
+
 import { useState } from 'react';
 import styles from './page.module.css';
 import { useEffect } from 'react';
 
+import FileIn from './components/FileIn/fileIn';
 import { Problem } from './types/Problem';
 import QuizSection from './components/Quiz/QuizSection';
 
@@ -15,6 +18,7 @@ export default function Home() {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [filePath, setFilePath] = useState('');
 
   useEffect(() => {
     setTopic("java");
@@ -134,7 +138,39 @@ const handleSubmitPDF = async (event: any) => {
     console.log(prompt);
     handleGeneration(prompt , setSolutions);
   };
+
+  // document.getElementById('pdfInput')?.addEventListener('change', function(event: any) {
+  //   const file = event.target.files[0];
+  //   if (file.type === "application/pdf") {
+  //     const reader = new FileReader();
+
+  //     reader.onload = async (e:any) => {
+  //       const result = e.target?.result;
+  //       const typedArray = new Uint8Array(result);
+
+  //       if (typeof window != 'undefined') {
+  //         const pdfjsLib = await import('pdfjs-dist');
+  //         pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.js';
+  //         const loadingTask = pdfjsLib.getDocument({data: typedArray});
+  //         const pdf = await loadingTask.promise;
   
+  //         let extractedText = '';
+  
+  //         for (let i = 1; i <= pdf.numPages; i++) {
+  //           const page = await pdf.getPage(i);
+  //           const textContent = await page.getTextContent();
+  //           const strings = textContent.items.map((item: any) => item.str);
+  //           extractedText += strings.join(' ') + '\n';
+  //         }
+  //         document.getElementById('outputText')!.textContent = extractedText;
+  //       }
+  //     };
+
+  //     reader.readAsArrayBuffer(file); }
+  //     else {
+  //       alert('Please upload pdf')
+  //   }
+  // });
 
   return (
     <div className={styles.page}>
@@ -148,8 +184,9 @@ const handleSubmitPDF = async (event: any) => {
         <div className={styles.inputDiv}>
 
           {/*added this to template file input tag */}
-          <input type="file" accept="application/pdf"></input>
-          
+          {/* <input type="file" id="pdfInput" accept="application/pdf"></input>
+          <p id="outputText"></p> */}
+
           <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
             <option value="">Select Question Type</option>
@@ -161,14 +198,13 @@ const handleSubmitPDF = async (event: any) => {
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
 
-
+        <FileIn></FileIn>
          {/*added this to template the downloads button*/}
-        <div>
+        {/* <div>
           <button>download</button>
-        </div>
+        </div> */}
 
         <div className={styles.quizSection}>
-
 
       </div>
       <div className={styles.TopicBox}>
@@ -178,22 +214,14 @@ const handleSubmitPDF = async (event: any) => {
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
       </div>
-
       {solutions && <div>{solutions}</div>}
-
-      {/*testing for submission> */}
-      <form onSubmit={handleSubmitPDF}>
-        <input type="file" name="file" accept="application/pdf" />
-        <button type="submit">Upload and Extract Text</button>
-      </form>
     </div>
-
       <div className={styles.SolutionBox}>
         {solutions && <div>{solutions}</div>}
       </div>
       <div className={styles.bottomContainer}>
 
-      </div>
-      </div>
+    </div>
+  </div>
   );
 }
