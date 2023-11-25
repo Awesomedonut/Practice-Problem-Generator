@@ -12,6 +12,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@types/react-router": "^5.1.20",
     "formidable": "^3.5.1",
     "next": "14.0.2",
     "openai": "^4.17.4",

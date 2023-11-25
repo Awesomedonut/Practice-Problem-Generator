@@ -168,7 +168,7 @@ const handleSubmitPDF = async (event: any) => {
         </div>
 
         <div className={styles.quizSection}>
-        </div>
+
 
       </div>
       <div className={styles.TopicBox}>
@@ -185,7 +185,7 @@ const handleSubmitPDF = async (event: any) => {
       <form onSubmit={handleSubmitPDF}>
         <input type="file" name="file" accept="application/pdf" />
         <button type="submit">Upload and Extract Text</button>
-    </form>
+      </form>
     </div>
 
       <div className={styles.SolutionBox}>
@@ -195,6 +195,5 @@ const handleSubmitPDF = async (event: any) => {
 
       </div>
       </div>
-
   );
 }
