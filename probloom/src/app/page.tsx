@@ -168,7 +168,12 @@ export default function Home() {
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
       </div>
-      {solutions && <div>{solutions}</div>}
-    </div>
+      <div className={styles.SolutionBox}>
+        {solutions && <div>{solutions}</div>}
+      </div>
+      <div className={styles.bottomContainer}>
+
+      </div>
+      </div>
   );
 }

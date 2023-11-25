@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 .quizSection {
-    background-color: white; /* Set the background color to white */
+    background-color: rgba(33, 31, 31, 0.885); 
     display: flex; /* Use flexbox to vertically list each question section */
     flex-direction: column; /* Set the flex direction to column */
   }

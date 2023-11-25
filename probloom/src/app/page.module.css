@@ -2,13 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 .page {
-  height: 97vh;
   margin: 0;
   background-image: url('/IMG_1034.jpg'); 
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
-  height: 2300px;
+  max-height: 2000px;
 }
 
 .content {
@@ -130,13 +129,13 @@
   left:10%;
   max-width: 1200px; 
   height: auto;
-  background-color: rgba(33, 31, 31, 0.885);
+  background-color: rgba(33, 31, 31, 0.80);
   border: 1px solid rgba(39, 36, 36, 0.885); 
   border-radius: 16px; 
   text-align: center;
   padding: 20px;
   width: 80%;
-  margin-top: 25%; 
+  margin-top: 10%; 
   margin-left:10%;
 
 }
@@ -145,29 +144,36 @@
 .OutputBox {
   left:10%;
   max-width: 1200px; 
-  height: 800px;
-  background-color: rgba(33, 31, 31, 0.885);
-  border: 1px solid rgba(39, 36, 36, 0.885); 
+  max-height: 1000px;
+  background-color: rgba(33, 31, 31);
+  border: 1px solid rgba(39, 36, 36); 
   border-radius: 16px; 
   text-align: center;
   padding: 20px;
   width: 80%;
-  margin: 5% auto 0; 
-  
+  margin: 2% auto 0; 
 
 }
-/*
-.OutputBox {
-  left:1000px;
-  width: 80%; 
-  height: 1000px;
-  background-color: rgba(39, 36, 36, 0.885);
-  border: 1px solid rgba(39, 36, 36, 0.885); 
-  border-radius: 10px; 
+
+.SolutionBox {
+  left:10%;
+  max-width: 1200px; 
+  max-height: 1000px;
+  background-color: rgba(33, 31, 31);
+  border: 1px solid rgba(39, 36, 36); 
+  border-radius: 16px; 
   text-align: center;
   padding: 20px;
-  margin-left:130px;
-  margin-top:px
+  width: 80%;
+  margin: 2% auto 0; 
+
 }
 
-*/
+.bottomContainer {
+  background-color: rgba(33, 31, 31, 0.8);
+  border-bottom: 10pt solid rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin-top: 10%; 
+}
