@@ -31,7 +31,7 @@ export default function Help() {
                     <div className={`${styles.box} ${styles.box4}`}>
                         <div className={styles.boxContent}>
                             <h3 className={styles.heading}>How to download PDF?</h3>
-                            <p className={styles.paragraph}>1. Enter topic and select "text" as problem type. </p>
+                            <p className={styles.paragraph}>1. Enter topic and select <i>text</i> as problem type. </p>
                             <p className={styles.paragraph}>2. Click on generate questions. </p>
                             <p className={styles.paragraph}>3. Below questions generated, click on save as PDF. </p>
                         </div>
@@ -40,7 +40,7 @@ export default function Help() {
                 </div>
             </div>
             <div className={styles.contactus}>
-                <p>We're here to help</p>
+                <p>We are here to help!</p>
                 <h4>Contact Us: questions@probloom.com</h4>  
             </div>
         </div>
