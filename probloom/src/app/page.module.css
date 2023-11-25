@@ -33,7 +33,7 @@
 .inputDiv {
   display: flex;
   justify-content: center;
-  margin: 30px 20% 30px 20%;
+  margin: 30px 10% 30px 20%;
   
 }
 
@@ -114,15 +114,14 @@
 
 .dropdown {
   appearance: none;
-  background-color: rgba(98, 93, 93, 0.795);
+  background-color: rgba(19, 16, 16, 0.795);
   border: 1px solid rgb(90, 85, 85);
-  padding: 8px 14px;
+  padding: 3px 10px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 40px;
-  position: absolute;
-  right: 180px;
-  top:10;
+  border-radius: 20px;
+  margin-left:2%;
+
 }
 
 .dropdown option {
@@ -130,21 +129,23 @@
 }
 
 .TopicBox {
-  left:100px;
-  width: 1200px; 
-  height: 200px;
-  background-color: rgba(39, 36, 36, 0.885);
+  left:10%;
+  max-width: 1200px; 
+  height: auto;
+  background-color: rgba(83, 79, 79, 0.885);
   border: 1px solid rgba(39, 36, 36, 0.885); 
   border-radius: 10px; 
   text-align: center;
   padding: 20px;
-  margin-left: 130px;
-  margin-top:250px
-
 }
 
+.TopicBox {
+  width: 90%;
+  margin: 5% auto 0; 
+}
+
+
 .OutputBox {
- 
   left:1000px;
   width: 1200px; 
   height: 1000px;
@@ -153,6 +154,7 @@
   border-radius: 10px; 
   text-align: center;
   padding: 20px;
-  margin-left: 130px;
+  margin-left:130px;
   margin-top:50px
 }
+
