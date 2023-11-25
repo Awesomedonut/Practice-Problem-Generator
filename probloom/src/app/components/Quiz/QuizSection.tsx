@@ -57,5 +57,4 @@ const QuizSection: React.FC<QuizSectionProps> = ({ problems, userAnswers, handle
   );
 };
 
-
 export default QuizSection;
