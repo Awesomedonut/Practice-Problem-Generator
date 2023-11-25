@@ -2,23 +2,10 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
-import header from './components/Header/header';
-import  {Kaushan_Script} from 'next/font/google';
 import { useEffect } from 'react';
-
-import Link from 'next/link';
 
 import { Problem } from './types/Problem';
 import QuizSection from './components/Quiz/QuizSection';
-import { set } from 'cypress/types/lodash';
-
-
-const kaushan = Kaushan_Script({
-  weight: ['400', '400'],
-  style: ['normal'],
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 export default function Home() {
   const [topic, setTopic] = useState('');
@@ -53,7 +40,6 @@ export default function Home() {
     ]);
   }, []);
 
-//TODO: move this function to another file
   async function handleGeneration(prompt: string, setFunction: any) {
     setLoading(true);
     setError('');
@@ -61,8 +47,8 @@ export default function Home() {
     console.log(prompt, setFunction);
 
     try {
-      const response = await fetch('/api/openai', { //TODO: logic that ensures there are no repeat questions
-        method: 'POST', //TODO: optimize api call?
+      const response = await fetch('/api/openai', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -106,15 +92,10 @@ export default function Home() {
     The JSON response:`, setUpQuiz);
   }
 
-  const setUpQuiz = (responseOjbect: any) =>{
-    console.log(JSON.parse(responseOjbect));    
-    setProblems(JSON.parse(responseOjbect));
-    console.log(Array.isArray(JSON.parse(responseOjbect)));    
+  const setUpQuiz = (responseOjbect: any) =>{  
+    setProblems(JSON.parse(responseOjbect));  
   }
 
-  async function checkUserAnswers() { //TODO: bug fix - figured out issue, server related due to vercel's free tier having only 10s
-    // handleGeneration(`Create a solution for this problem: ${problems}`, setSolutions);
-  }
   const handleAnswerChange = (index: any, value: any) => {
     setUserAnswers({ ...userAnswers, [index]: value });
     
@@ -145,7 +126,7 @@ export default function Home() {
           <h1 className={styles.mainTitle}>Probloom</h1>
           <p className={styles.subtitle}>Let Your Problems Blossom</p>
         </div>
-        {error && <p className={styles.error}>{error}</p>}
+        {error && <p className={styles.error}>{error}</p>} 
         <div className={styles.inputDiv}>
           <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
@@ -157,14 +138,11 @@ export default function Home() {
         <div className={styles.buttonsDiv}>
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
-        <div className={styles.quizSection}>
-        </div>
       </div>
       <div className={styles.TopicBox}>
         <p>{topic}</p>
       </div>
       <div className={styles.OutputBox}>
-        <p>This where the question goes.</p>
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
         <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
       </div>
