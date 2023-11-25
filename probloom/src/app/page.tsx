@@ -162,6 +162,10 @@ const handleSubmitPDF = async (event: any) => {
         </div>
         {error && <p className={styles.error}>{error}</p>}
         <div className={styles.inputDiv}>
+
+          {/*added this to template file input tag */}
+          <input type="file" accept="application/pdf"></input>
+          
           <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
             <option value="">Select Question Type</option>
@@ -172,6 +176,12 @@ const handleSubmitPDF = async (event: any) => {
         <div className={styles.buttonsDiv}>
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
+
+         {/*added this to template the downloads button*/}
+        <div>
+          <button>download</button>
+        </div>
+
         <div className={styles.quizSection}>
         </div>
       </div>
