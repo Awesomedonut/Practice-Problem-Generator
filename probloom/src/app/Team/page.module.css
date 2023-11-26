@@ -1,8 +1,74 @@
-.page {
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+
+.pageContainer {
     height: 97vh;
-    margin: 0;
-    background-image: url('/BlacknWhite.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
+    margin: 0px auto;
+    background-image:url('/AboutBackground.jpg');  
   }
+
+  
+   .teamTitle {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   }
+
+   .teamTitle img {
+    margin-top: 10px;
+    margin-left: 10px
+   }
+
+   .teamTitle h1 {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 60px;
+   }
+
+   .slides {
+    width: 600px;
+    margin: auto;
+    margin-top: 115px;
+    box-shadow: 15px 20px 5px rgba(0, 0, 0, 0.1);
+    border: 10px solid white;
+   }
+
+
+   .img1 img {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    display: block;
+    opacity: 0.9;
+    height: 350px;
+    }
+
+    .img2 img {
+      position: fixed;
+      bottom: 90px;
+      right: 200px;
+      display: block;
+      opacity: 0.9;
+      height: 350px;
+      }
+
+ 
+
+   @media (max-width: 1600px), (max-height: 630px) {
+    .img1 img {
+      display: none;
+    }
+
+    .img2 img {
+      display: none;
+    }
+   }
+
+   
+
+
+
+
