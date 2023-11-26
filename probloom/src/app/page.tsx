@@ -209,13 +209,17 @@ export default function Home() {
         </div>
         {error && <p className={styles.error}>{error}</p>} 
         <div className={styles.inputDiv}>
-          
+
+          <div className={styles.inputDiv}>
+          {/* Added this to template file input tag */}
         <div className={styles.fileInputContainer}>
           <FileIn onReceive={setContent}></FileIn>
           <label htmlFor='pdfInput' className={styles.customFileInputButton}>Choose PDF</label>
         </div>
-
+           </div>
+            
           <input type="text" id="inputGen" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
+
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
             <option value="">Select Question Type</option>
             <option value="multipleChoice">Multiple Choice</option>
