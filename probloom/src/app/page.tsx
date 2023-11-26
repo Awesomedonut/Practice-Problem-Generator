@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import FileIn from './components/FileIn/fileIn';
 import { Problem } from './types/Problem';
 import QuizSection from './components/Quiz/QuizSection';
+import { fileFromPath } from 'openai';
 
 export default function Home() {
   const [topic, setTopic] = useState('');
@@ -19,6 +20,7 @@ export default function Home() {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [downloadOption, setDownloadOption] = useState('');
 
   useEffect(() => {
     setTopic("java");
@@ -161,6 +163,42 @@ export default function Home() {
     // else return;
  }
 
+ const downloadQuestionsPDF = () => {
+  var pdfMake = require('pdfmake/build/pdfmake.js');
+  var docDefinition = {
+    content: [
+      {text: {problems}}
+    ],
+    defaultStyle: {
+    }
+  };
+  pdfMake.createPdf(docDefinition).print();
+ }
+
+ const downloadAnswersPDF = () => {
+  var pdfMake = require('pdfmake/build/pdfmake.js');
+  var docDefinition = {
+    content: [
+      {text: {solutions}}
+    ],
+    defaultStyle: {
+    }
+  };
+  pdfMake.createPdf(docDefinition).print();
+ }
+
+ const downloadQAPDF = () => {
+  var pdfMake = require('pdfmake/build/pdfmake.js');
+  var docDefinition = {
+    content: [
+      {text: ({problems} + '\n\n' + {solutions})}
+    ],
+    defaultStyle: {
+    }
+  };
+  pdfMake.createPdf(docDefinition).print();
+ }
+
   return (
     <div className={styles.page}>
       <div className={styles.content}>
@@ -203,7 +241,9 @@ export default function Home() {
         {solutions && <div>{solutions}</div>}
       </div>
       <div className={styles.downloadBox}>
-        <button>Download</button>
+        <button onClick={downloadQuestionsPDF}>Download Questions</button>
+        <button onClick={downloadAnswersPDF}>Download Answers</button>
+        <button onClick={downloadQAPDF}>Download Q&A</button>
       </div>
       <div className={styles.bottomContainer}>
       <p id="outputText"></p>
