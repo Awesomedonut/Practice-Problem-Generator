@@ -211,7 +211,6 @@ export default function Home() {
         <div className={styles.inputDiv}>
 
           <div className={styles.inputDiv}>
-          {/* Added this to template file input tag */}
         <div className={styles.fileInputContainer}>
           <FileIn onReceive={setContent}></FileIn>
           <label htmlFor='pdfInput' className={styles.customFileInputButton}>Choose PDF</label>
