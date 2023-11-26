@@ -227,10 +227,9 @@ export default function Home() {
         <div className={styles.buttonsDiv}>
           <button onClick={handleGenerateProblems} disabled={loading}><a href="#quizSection">{loading ? 'Generating...' : 'Generate Problem'}</a></button>
         </div>
-
         <div id="quizSection" className={styles.quizSection}>
-
       </div>
+      
       <div className={styles.TopicBox}>
         <p>{topic}</p>
       </div>
