@@ -146,9 +146,14 @@ const handleSubmitPDF = async (event: any) => {
         {error && <p className={styles.error}>{error}</p>} 
         <div className={styles.inputDiv}>
 
-          {/*added this to template file input tag */}
-          <input type="file" accept="application/pdf"></input>
-          
+          <div className={styles.inputDiv}>
+          {/* Added this to template file input tag */}
+            <div className={styles.fileInputContainer}>
+              <input type="file" id="pdfInput" accept="application/pdf" style={{ display: 'none' }} />
+              <label htmlFor="pdfInput" className={styles.customFileInputButton}>Choose PDF</label>
+            </div>
+           </div>
+            
           <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
             <option value="">Select Question Type</option>
