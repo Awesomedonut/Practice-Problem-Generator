@@ -1,5 +1,6 @@
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
+
 function Slider() {
   return (
     <div id="carouselExampleIndicators" className="carousel slide">
@@ -34,54 +35,50 @@ function Slider() {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
-            src="/FlowerBackground.JPG"
+            src="/jin.jpg"
             className="d-block w-100"
             alt="..."
             width={100}
-            height={500}
+            height={600}
           />
           <div className="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>Jin Song</h5>
           </div>
         </div>
         <div className="carousel-item">
           <img
-            src="/FlowerBackground.JPG"
+            src="/lucas.PNG"
             className="d-block w-100"
             alt="..."
             width={100}
-            height={500}
+            height={600}
           />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>Lucas De Biasio</h5>
           </div>
         </div>
         <div className="carousel-item">
           <img
-            src="/FlowerBackground.JPG"
+            src="/zoe.png"
             className="d-block w-100"
             alt="..."
             width={100}
-            height={500}
+            height={600}
           />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>Zoe Wong</h5>
           </div>
         </div>
         <div className="carousel-item">
           <img
-            src="/FlowerBackground.JPG"
+            src="/julie.jpg"
             className="d-block w-100"
             alt="..."
             width={100}
-            height={500}
+            height={600}
           />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Fourth slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>Julie Wu</h5>
           </div>
         </div>
       </div>

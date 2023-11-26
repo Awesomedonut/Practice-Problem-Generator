@@ -5,19 +5,21 @@
 
 .pageContainer {
     height: 97vh;
-    margin: 0;
-    /* background-image: url('/BlacknWhite.jpg');  
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;  */
+    margin: 0px auto;
+    background-image:url('/AboutBackground.jpg');  
   }
 
-  .mainContent {
+   .teamTitle {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
    }
 
-   .teamTitle {
-    text-align: center;
-    margin-top: 70px;
+   .teamTitle img {
+    margin-top: 10px;
+    margin-left: 10px
    }
 
    .teamTitle h1 {
@@ -26,28 +28,45 @@
    }
 
    .slides {
-    width: 800px;
+    width: 600px;
     margin: auto;
     margin-top: 115px;
     box-shadow: 15px 20px 5px rgba(0, 0, 0, 0.1);
+    border: 10px solid white;
    }
 
-   @media (max-width: 900px) {
-    .slides {
-      width: 600px;
-      height: 80%;
-      box-shadow: 5px 15 7px rgba(0, 0, 0, 0.05);
+
+   .img1 img {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    display: block;
+    opacity: 0.9;
+    height: 350px;
+    }
+
+    .img2 img {
+      position: fixed;
+      bottom: 90px;
+      right: 200px;
+      display: block;
+      opacity: 0.9;
+      height: 350px;
+      }
+
+ 
+
+   @media (max-width: 1600px), (max-height: 630px) {
+    .img1 img {
+      display: none;
+    }
+
+    .img2 img {
+      display: none;
     }
    }
 
-   @media (min-width: 1950px) {
-    .slides {
-      width: 900px;
-      height: 100%;
-      margin-top: 150px;
-      box-shadow: 5px 15 7px rgba(0, 0, 0, 0.05);
-    }
-   }
+   
 
 
 

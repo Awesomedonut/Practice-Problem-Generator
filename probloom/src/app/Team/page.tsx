@@ -27,10 +27,19 @@ export default function Team() {
 
         <div className={styles.teamTitle}>
             <h1>About the Team</h1>
+            <img src="FlowerLogo.png" height="70" />
         </div>
 
         <div className={styles.slides}>
           <Slider></Slider>
+        </div>
+
+        <div className={styles.img1}>
+          <img src="AboutFlower.png" alt="" />
+        </div>
+
+        <div className={styles.img2}>
+          <img src="AboutFlower.png" alt="" />
         </div>
 
       </div>
