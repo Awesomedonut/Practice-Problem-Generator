@@ -12,11 +12,14 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@types/pdfjs-dist": "^2.10.378",
     "@types/react-router": "^5.1.20",
     "formidable": "^3.5.1",
     "next": "14.0.2",
     "openai": "^4.17.4",
     "pdf.js-extract": "^0.2.1",
+    "pdfjs-dist": "^4.0.189",
+    "pdfmake": "^0.2.8",
     "react": "^18",
     "react-dom": "^18"
   },

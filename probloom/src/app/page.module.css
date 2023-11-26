@@ -66,11 +66,6 @@
   margin-top: 1%;
 }
 
-.buttonsDiv > button:hover {
-  box-shadow: 0px 0px 25px 0px rgba(239, 187, 213, 0.6);
-  cursor: pointer;
-}
-
 .buttonLink {
   padding: 10px;
   border: none;
@@ -89,8 +84,10 @@
 }
 
 .buttonsDiv > button:hover {
-  box-shadow: 0px 0px 25px 0px rgba(239, 187, 213, 0.6);
   cursor: pointer;
+  background-color: rgba(33, 31, 31, 0.885);
+  color: rgb(249, 243, 243);
+  /* border: 0px solid rgb(249, 243, 243); */
 }
 
 .error {
@@ -163,7 +160,7 @@
   background-color: rgba(33, 31, 31);
   border: 1px solid rgba(39, 36, 36); 
   border-radius: 16px; 
-  text-align: center;
+  text-align: left;
   padding: 20px;
   width: 80%;
   margin: 2% auto 0; 
@@ -194,4 +191,50 @@
   width: 120px;
   max-height:40px;
   margin-right: 20px !important;
+}
+
+.submitAnswersButton {
+  padding: 10px;
+  border: 1px solid rgba(33, 31, 31, 0.885);
+  color: rgb(0, 0, 0);
+  background-color: rgb(249, 243, 243);
+  border-radius: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: medium;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.submitAnswersButton:hover {
+  cursor: pointer;
+  background-color: rgba(33, 31, 31, 0.885);
+  color: rgb(249, 243, 243);
+  border: 1px solid rgb(249, 243, 243);
+}
+
+.downloadBox {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.downloadBox > button {
+  padding: 10px;
+  border: 1px solid rgba(33, 31, 31, 0.885);
+  color: rgb(0, 0, 0);
+  background-color: rgb(249, 243, 243);
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: medium;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.downloadBox > button:hover {
+  cursor: pointer;
+  background-color: rgba(33, 31, 31, 0.885);
+  color: rgb(249, 243, 243);
+  border: 1px solid rgb(249, 243, 243);
 }
