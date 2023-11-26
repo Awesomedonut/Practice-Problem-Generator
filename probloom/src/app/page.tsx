@@ -142,6 +142,7 @@ export default function Home() {
     console.log(prompt);
     handleGeneration(prompt , setSolutions);
   };
+
   const printContent = (text: string)=>{
     console.log("*********");
     console.log(text);
@@ -172,11 +173,8 @@ export default function Home() {
         {error && <p className={styles.error}>{error}</p>} 
         <div className={styles.inputDiv}>
 
-          {/*added this to template file input tag */}
-          {/* <input type="file" id="pdfInput" accept="application/pdf"></input>
-          <p id="outputText"></p> */}
-
           <input type="text" id="inputGen" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
+
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
             <option value="">Select Question Type</option>
             <option value="multipleChoice">Multiple Choice</option>
@@ -188,7 +186,7 @@ export default function Home() {
         </div>
 
         <FileIn onReceive={setContent}></FileIn>
-       
+      
         <div className={styles.quizSection}>
 
       </div>
