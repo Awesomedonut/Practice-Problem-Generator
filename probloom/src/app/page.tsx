@@ -12,6 +12,7 @@ import QuizSection from './components/Quiz/QuizSection';
 
 export default function Home() {
   const [topic, setTopic] = useState('');
+  const [content, setContent] = useState('');
   const [questionType, setQuestionType] = useState('');
   const [problems, setProblems] = useState<Problem[]>([]); // Update the state type
   const [solutions, setSolutions] = useState('');
@@ -82,10 +83,10 @@ export default function Home() {
   }
 
   async function handleGenerateProblems() {
-    var content = checkInputType();
+    // var content = checkInputType();
     var prompt = `
-        Analyze the following: ${content} and create two short practice problems
-        based on its contents,
+        You are a very experienced teacher and you can create problems after reading some content; the content section will always end with "@@##".
+        You now need to create two short practice problems based on content I will give you;
         the question type is ${questionType}. 
      if the question type is multipleChoice, give me choices,
         and answer. if the question type is text, only give me answer.
@@ -96,8 +97,11 @@ export default function Home() {
         "questionType": "multipleChoice or text", 
         "choices":["choice 1","choice 2","choice 3","choice 4"], 
         "answer":"answer here"}]
+        The content is ${content.replace("@","").replace("#","")}. @@##
         The JSON response:`
     console.log(prompt);
+
+    handleGeneration(prompt, setUpQuiz);
 
 //     handleGeneration(`
 //     Create two short practice problem for the following topic: ${topic},
@@ -112,8 +116,8 @@ export default function Home() {
 //     "choices":["choice 1","choice 2","choice 3","choice 4"], 
 //     "answer":"answer here"}]
 //     The JSON response:`, setUpQuiz);
-  }
-
+//   }
+        }
   const setUpQuiz = (responseOjbect: any) =>{  
     setProblems(JSON.parse(responseOjbect));  
   }
@@ -138,7 +142,10 @@ export default function Home() {
     console.log(prompt);
     handleGeneration(prompt , setSolutions);
   };
-
+  const printContent = (text: string)=>{
+    console.log("*********");
+    console.log(text);
+  }
   const checkInputType = () => {
     let pdf = (document.getElementById('pdfInput') as HTMLInputElement);
     let text = (document.getElementById('inputGen')as HTMLInputElement);
@@ -180,7 +187,7 @@ export default function Home() {
           <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
         </div>
 
-        <FileIn></FileIn>
+        <FileIn onReceive={setContent}></FileIn>
        
         <div className={styles.quizSection}>
 

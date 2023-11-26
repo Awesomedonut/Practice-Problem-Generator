@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react';
 
-const FileIn = () => {
+interface FileInProps {
+  onReceive: (extractedText: string) => void;
+}
+
+
+const FileIn: React.FC<FileInProps> = ({ onReceive }) => {
     useEffect(() => {
         const handleFileChange = async (event: any) => {
             const file = event.target.files[0];
@@ -26,6 +31,10 @@ const FileIn = () => {
                       extractedText += strings.join(' ') + '\n';
                     }
                     document.getElementById('outputText')!.textContent = extractedText;
+
+                    if (extractedText && onReceive) {
+                      onReceive(extractedText);
+                  }
                   }
                 };
           
