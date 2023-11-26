@@ -1,9 +1,39 @@
-import styles from './page.module.css';
+"use client";
+
+import React from "react";
+import styles from "./page.module.css";
+import Head from "next/head";
+import { Kaushan_Script } from "next/font/google";
+import Slider from "./Slider";
+import "bootstrap/dist/css/bootstrap.css";
+
+const kaushan = Kaushan_Script({
+  weight: ["400", "400"],
+  style: ["normal"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function Team() {
-    return (
-        <div className={styles.page}>
-        <h1>team</h1>
+  return (
+    <div className={styles.pageContainer}>
+      <Head>
+        <style>{`
+         @import url('${kaushan}');
+       `}</style>
+      </Head>
+
+      <div className={styles.mainContent}>
+
+        <div className={styles.teamTitle}>
+            <h1>About the Team</h1>
         </div>
-    )
+
+        <div className={styles.slides}>
+          <Slider></Slider>
+        </div>
+
+      </div>
+    </div>
+  );
 }
