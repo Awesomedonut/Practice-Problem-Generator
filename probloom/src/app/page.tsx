@@ -82,19 +82,36 @@ export default function Home() {
   }
 
   async function handleGenerateProblems() {
-    handleGeneration(`
-    Create two short practice problem for the following topic: ${topic},
-    the question type is ${questionType}. 
- if the question type is multipleChoice, give me choices,
-    and answer. if the question type is text, only give me answer.
-    Do not include any explanations, only provide a  RFC8259 compliant JSON response 
-    following this format without deviation.
-    [{
-      "question": "question here", 
-    "questionType": "multipleChoice or text", 
-    "choices":["choice 1","choice 2","choice 3","choice 4"], 
-    "answer":"answer here"}]
-    The JSON response:`, setUpQuiz);
+    var content = checkInputType();
+    var prompt = `
+        Analyze the following: ${content} and create two short practice problems
+        based on its contents,
+        the question type is ${questionType}. 
+     if the question type is multipleChoice, give me choices,
+        and answer. if the question type is text, only give me answer.
+        Do not include any explanations, only provide a  RFC8259 compliant JSON response 
+        following this format without deviation.
+        [{
+          "question": "question here", 
+        "questionType": "multipleChoice or text", 
+        "choices":["choice 1","choice 2","choice 3","choice 4"], 
+        "answer":"answer here"}]
+        The JSON response:`
+    console.log(prompt);
+
+//     handleGeneration(`
+//     Create two short practice problem for the following topic: ${topic},
+//     the question type is ${questionType}. 
+//  if the question type is multipleChoice, give me choices,
+//     and answer. if the question type is text, only give me answer.
+//     Do not include any explanations, only provide a  RFC8259 compliant JSON response 
+//     following this format without deviation.
+//     [{
+//       "question": "question here", 
+//     "questionType": "multipleChoice or text", 
+//     "choices":["choice 1","choice 2","choice 3","choice 4"], 
+//     "answer":"answer here"}]
+//     The JSON response:`, setUpQuiz);
   }
 
   const setUpQuiz = (responseOjbect: any) =>{  
@@ -122,17 +139,20 @@ export default function Home() {
     handleGeneration(prompt , setSolutions);
   };
 
-//   const checkInputType = () => {
-//     let pdf = (document.getElementById('pdfInput') as HTMLInputElement);
-//     let text = (document.getElementById('inputGen')as HTMLInputElement);
-//     if (text.value = '' && pdf.value != '') {
-//       return pdf.value;
-//     }
-//     else if ((text.value != '') && (pdf.value = '')) {
-//       return text.value;
-//     }
-//     else return;
-//  }
+  const checkInputType = () => {
+    let pdf = (document.getElementById('pdfInput') as HTMLInputElement);
+    let text = (document.getElementById('inputGen')as HTMLInputElement);
+    if (text.value = '' && pdf.value != '') {
+      console.log(pdf.value)
+      return pdf.value;
+    }
+    else if ((text.value != '') && (pdf.value = '')) {
+      console.log(text.value)
+      return text.value;
+    }
+    console.log("empty");
+    // else return;
+ }
 
   return (
     <div className={styles.page}>
