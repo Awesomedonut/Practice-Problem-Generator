@@ -22,7 +22,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ problems, userAnswers, handle
                 name={`textQuestion${index}`}
                 rows={5}
                 cols={50}
-                style={{ width: '70%', padding: '10px', borderRadius: '16px', backgroundColor: 'rgb(56,56,56)', borderColor: 'rgb(0,0,0)',resize: 'none',}}
+                style={{ width: '100%', padding: '10px', borderRadius: '16px', backgroundColor: 'rgb(56,56,56)', border: 'none',resize: 'none',}}
                 value={userAnswers[index] || ''}
                 onChange={(e) => handleAnswerChange(index, e.target.value)}
               />

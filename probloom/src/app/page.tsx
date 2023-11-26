@@ -33,7 +33,7 @@ export default function Home() {
       {
         question: "question here",
         questionType: "multipleChoice",
-        choices: ["choice 1", "choice 2", "choice 3", "choice 4"],
+        choices: [" choice 1", " choice 2", " choice 3", " choice 4"],
         answer: "answer here"
       },
       {
@@ -171,10 +171,11 @@ export default function Home() {
         </div>
         {error && <p className={styles.error}>{error}</p>} 
         <div className={styles.inputDiv}>
-
-          {/*added this to template file input tag */}
-          {/* <input type="file" id="pdfInput" accept="application/pdf"></input>
-          <p id="outputText"></p> */}
+          
+        <div className={styles.fileInputContainer}>
+          <FileIn onReceive={setContent}></FileIn>
+          <label htmlFor='pdfInput' className={styles.customFileInputButton}>Choose PDF</label>
+        </div>
 
           <input type="text" id="inputGen" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
@@ -184,12 +185,10 @@ export default function Home() {
           </select>
         </div>
         <div className={styles.buttonsDiv}>
-          <button onClick={handleGenerateProblems} disabled={loading}>{loading ? 'Generating...' : 'Generate Problem'}</button>
+          <button onClick={handleGenerateProblems} disabled={loading}><a href="#quizSection">{loading ? 'Generating...' : 'Generate Problem'}</a></button>
         </div>
 
-        <FileIn onReceive={setContent}></FileIn>
-       
-        <div className={styles.quizSection}>
+        <div id="quizSection" className={styles.quizSection}>
 
       </div>
       <div className={styles.TopicBox}>
@@ -197,12 +196,14 @@ export default function Home() {
       </div>
       <div className={styles.OutputBox}>
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
-        <button onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
+        <button className={styles.submitAnswersButton} onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
       </div>
-      {solutions && <div>{solutions}</div>}
     </div>
       <div className={styles.SolutionBox}>
         {solutions && <div>{solutions}</div>}
+      </div>
+      <div className={styles.downloadBox}>
+        <button>Download</button>
       </div>
       <div className={styles.bottomContainer}>
       <p id="outputText"></p>

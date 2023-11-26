@@ -10,11 +10,25 @@
  .questionSection {
     padding: 10px; /* Add padding to the question section */
     margin: 10px; /* Add margin to the question section */
- 
+  }
+
+  .questionbody {
+    margin: 15px auto 0px auto;
+    width: 70%;
+    padding: 10px;
+    border-radius: 16px;
+    background-color: rgb(56,56,56);
+    border: 1px solid rgb(0,0,0);
+    resize: none;
+    text-align: left;
+    align-items: center;
+  }
+
+  .choice {
+    padding: 2px 0px 2px 0px;
   }
    /* 
-  .question {
-  }
+ 
   
   input[type="text"] {
   }

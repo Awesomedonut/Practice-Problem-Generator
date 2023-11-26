@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styles from './styles.module.css'
 
 interface FileInProps {
   onReceive: (extractedText: string) => void;
@@ -55,7 +56,7 @@ const FileIn: React.FC<FileInProps> = ({ onReceive }) => {
 
     return (
         <div>
-            <input type="file" id="pdfInput" accept="application/pdf" />
+            <input type="file" className={styles.pdfInput} id="pdfInput" accept="application/pdf" />
         </div>
     );
 };
