@@ -18,7 +18,6 @@ export default function Home() {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [filePath, setFilePath] = useState('');
 
   useEffect(() => {
     setTopic("java");
@@ -43,22 +42,6 @@ export default function Home() {
       }
     ]);
   }, []);
-
-
-  //handle file upload
-const handleSubmitPDF = async (event: any) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append('file', event.target.file.files[0]);
-
-    const response = await fetch('/api/upload', {
-      method: 'POST',
-      body: formData,
-    });
-
-    const data = await response.json();
-    console.log(data);
-};
 
 //TODO: move this function to another file
 
@@ -139,38 +122,17 @@ const handleSubmitPDF = async (event: any) => {
     handleGeneration(prompt , setSolutions);
   };
 
-  // document.getElementById('pdfInput')?.addEventListener('change', function(event: any) {
-  //   const file = event.target.files[0];
-  //   if (file.type === "application/pdf") {
-  //     const reader = new FileReader();
-
-  //     reader.onload = async (e:any) => {
-  //       const result = e.target?.result;
-  //       const typedArray = new Uint8Array(result);
-
-  //       if (typeof window != 'undefined') {
-  //         const pdfjsLib = await import('pdfjs-dist');
-  //         pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.js';
-  //         const loadingTask = pdfjsLib.getDocument({data: typedArray});
-  //         const pdf = await loadingTask.promise;
-  
-  //         let extractedText = '';
-  
-  //         for (let i = 1; i <= pdf.numPages; i++) {
-  //           const page = await pdf.getPage(i);
-  //           const textContent = await page.getTextContent();
-  //           const strings = textContent.items.map((item: any) => item.str);
-  //           extractedText += strings.join(' ') + '\n';
-  //         }
-  //         document.getElementById('outputText')!.textContent = extractedText;
-  //       }
-  //     };
-
-  //     reader.readAsArrayBuffer(file); }
-  //     else {
-  //       alert('Please upload pdf')
-  //   }
-  // });
+//   const checkInputType = () => {
+//     let pdf = (document.getElementById('pdfInput') as HTMLInputElement);
+//     let text = (document.getElementById('inputGen')as HTMLInputElement);
+//     if (text.value = '' && pdf.value != '') {
+//       return pdf.value;
+//     }
+//     else if ((text.value != '') && (pdf.value = '')) {
+//       return text.value;
+//     }
+//     else return;
+//  }
 
   return (
     <div className={styles.page}>
@@ -187,7 +149,7 @@ const handleSubmitPDF = async (event: any) => {
           {/* <input type="file" id="pdfInput" accept="application/pdf"></input>
           <p id="outputText"></p> */}
 
-          <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
+          <input type="text" id="inputGen" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter topic" />
           <select value={questionType} onChange={(e) => setQuestionType(e.target.value)} className={styles.dropdown}>
             <option value="">Select Question Type</option>
             <option value="multipleChoice">Multiple Choice</option>
@@ -199,11 +161,7 @@ const handleSubmitPDF = async (event: any) => {
         </div>
 
         <FileIn></FileIn>
-         {/*added this to template the downloads button*/}
-        {/* <div>
-          <button>download</button>
-        </div> */}
-
+       
         <div className={styles.quizSection}>
 
       </div>
@@ -220,7 +178,7 @@ const handleSubmitPDF = async (event: any) => {
         {solutions && <div>{solutions}</div>}
       </div>
       <div className={styles.bottomContainer}>
-
+      <p id="outputText"></p>
     </div>
   </div>
   );

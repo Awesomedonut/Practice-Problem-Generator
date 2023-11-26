@@ -47,7 +47,6 @@ const FileIn = () => {
     return (
         <div>
             <input type="file" id="pdfInput" accept="application/pdf" />
-            <p id='outputText'></p>
         </div>
     );
 };
