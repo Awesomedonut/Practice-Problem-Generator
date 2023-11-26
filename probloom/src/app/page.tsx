@@ -160,7 +160,6 @@ export default function Home() {
       return text.value;
     }
     console.log("empty");
-    // else return;
  }
 
  const downloadQuestionsPDF = () => {
