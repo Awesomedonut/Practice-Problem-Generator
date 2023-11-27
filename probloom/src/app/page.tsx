@@ -1,7 +1,5 @@
 'use client';
 
-import { getDocument } from 'pdfjs-dist';
-
 import { useState } from 'react';
 import styles from './page.module.css';
 import { useEffect } from 'react';
