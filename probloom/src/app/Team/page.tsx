@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 import Head from "next/head";
 import { Kaushan_Script } from "next/font/google";
 import Slider from "./Slider";
-import "bootstrap/dist/css/bootstrap.css";
+//import "bootstrap/dist/css/bootstrap.css";
 
 const kaushan = Kaushan_Script({
   weight: ["400", "400"],
