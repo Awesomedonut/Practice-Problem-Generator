@@ -137,6 +137,11 @@ export default function Home() {
     
   };
 
+  const handleRestart = () => {
+    setProblems([])
+    setSolutions("")
+  };
+
   const handleSubmit = () => {
     const userAnswersEntries = Object.entries(userAnswers);
     console.log('User Answers:', userAnswersEntries);
@@ -215,6 +220,7 @@ export default function Home() {
           <p className={styles.subtitle}>Let Your Problems Blossom</p>
         </div>
         {error && <p className={styles.error}>{error}</p>} 
+        {(!problems || problems.length == 0) && 
         <div className={styles.inputDiv}>
 
           <div className={styles.inputDiv}>
@@ -232,11 +238,11 @@ export default function Home() {
             <option value="text">Text</option>
           </select>
         </div>
+}{(!problems || problems.length == 0) &&
         <div className={styles.buttonsDiv}>
           <button onClick={handleGenerateProblems} disabled={loading}><a href="#quizSection">{loading ? 'Generating...' : 'Generate Problem'}</a></button>
         </div>
-        <div id="quizSection" className={styles.quizSection}>
-      </div>
+}
       {topic && 
       <div className={styles.TopicBox}>
         <p>{topic}</p>
@@ -245,7 +251,7 @@ export default function Home() {
       {problems && problems.length > 0 && 
       <div className={styles.OutputBox}>
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
-        <button className={styles.submitAnswersButton} onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
+        <button className={styles.submitAnswersButton} onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>              <button className={styles.submitAnswersButton} onClick={handleRestart} disabled={loading}>{loading ? '...' : 'Restart'}</button>    
       </div>
 }
     </div>
