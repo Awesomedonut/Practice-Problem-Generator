@@ -23,6 +23,7 @@ export default function Home() {
   const [downloadOption, setDownloadOption] = useState('');
 
   useEffect(() => {
+    if(!process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ || process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ == "0"){
     setTopic("java");
     setSolutions(`
     solutions here solutions here solutions here solutions here solutions here solutions 
@@ -44,6 +45,7 @@ export default function Home() {
         answer: "answer here"
       }
     ]);
+  }
   }, []);
 
 //TODO: move this function to another file
@@ -86,7 +88,7 @@ export default function Home() {
 
   async function handleGenerateProblems() {
     // var content = checkInputType();
-    
+
     var prompt = `
     Create two short practice problem for the following topic: ${topic},
     the question type is ${questionType}. 
@@ -235,23 +237,30 @@ export default function Home() {
         </div>
         <div id="quizSection" className={styles.quizSection}>
       </div>
-      
+      {topic && 
       <div className={styles.TopicBox}>
         <p>{topic}</p>
       </div>
+}
+      {problems && problems.length > 0 && 
       <div className={styles.OutputBox}>
         <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
         <button className={styles.submitAnswersButton} onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>      
       </div>
+}
     </div>
-      <div className={styles.SolutionBox}>
-        {solutions && <div>{solutions}</div>}
-      </div>
+      {solutions && <div className={styles.SolutionBox}>
+          <div>{solutions}</div>
+      </div>}
+      { solutions && 
+
+      
       <div className={styles.downloadBox}>
         <button onClick={downloadQuestionsPDF}>Download Questions</button>
         <button onClick={downloadAnswersPDF}>Download Answers</button>
         <button onClick={downloadQAPDF}>Download Q&A</button>
       </div>
+}
       <div className={styles.bottomContainer}>
       <p id="outputText"></p>
     </div>
