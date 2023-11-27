@@ -5,7 +5,9 @@ import styles from "./page.module.css";
 import Head from "next/head";
 import { Kaushan_Script } from "next/font/google";
 import Slider from "./Slider";
-//import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
+
 
 const kaushan = Kaushan_Script({
   weight: ["400", "400"],
@@ -15,6 +17,10 @@ const kaushan = Kaushan_Script({
 });
 
 export default function Team() {
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+  
   return (
     <div className={styles.pageContainer}>
       <Head>
@@ -41,7 +47,6 @@ export default function Team() {
         <div className={styles.img2}>
           <img src="AboutFlower.png" alt="" />
         </div>
-
       </div>
     </div>
   );
