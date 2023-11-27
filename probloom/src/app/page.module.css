@@ -245,3 +245,7 @@
   color: rgb(249, 243, 243);
   border: 1px solid rgb(249, 243, 243);
 }
+
+.bottomContainer > p{
+  display:none;
+}
