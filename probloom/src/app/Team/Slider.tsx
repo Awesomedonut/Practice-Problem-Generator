@@ -1,6 +1,3 @@
-// import "bootstrap/dist/js/bootstrap.bundle.min.js";
-
-
 function Slider() {
   return (
     <div id="carouselExampleIndicators" className="carousel slide">
@@ -103,5 +100,5 @@ function Slider() {
     </div>
   );
 }
-
 export default Slider;
+

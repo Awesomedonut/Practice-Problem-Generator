@@ -1,4 +1,4 @@
-import OpenAI from 'openai';
+import OpenAI from 'openai'; 
 
 export default async function handler(req: any, res: any) {
   // Only allow POST requests
@@ -12,7 +12,7 @@ export default async function handler(req: any, res: any) {
     });
 
     // Extract the prompt from the request body
-    const { prompt } = req.body;
+    const { prompt } = req.body; 
 
     const response = await openai.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],

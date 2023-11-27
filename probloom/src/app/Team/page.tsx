@@ -20,7 +20,6 @@ export default function Team() {
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
-  
   return (
     <div className={styles.pageContainer}>
       <Head>
@@ -38,6 +37,15 @@ export default function Team() {
 
         <div className={styles.slides}>
           <Slider></Slider>
+        </div>
+
+        <div className={styles.img1}>
+          <img src="AboutFlower.png" alt="" />
+        </div>
+
+        <div className={styles.img2}>
+          <img src="AboutFlower.png" alt="" />
+        </div>
         </div>
 
         <div className={styles.img1}>
