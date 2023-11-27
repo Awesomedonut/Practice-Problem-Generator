@@ -86,7 +86,23 @@ export default function Home() {
 
   async function handleGenerateProblems() {
     // var content = checkInputType();
+    
     var prompt = `
+    Create two short practice problem for the following topic: ${topic},
+    the question type is ${questionType}. 
+ if the question type is multipleChoice, give me choices,
+    and answer. if the question type is text, only give me answer.
+    Do not include any explanations, only provide a  RFC8259 compliant JSON response 
+    following this format without deviation.
+    [{
+      "question": "question here", 
+    "questionType": "multipleChoice or text", 
+    "choices":["choice 1","choice 2","choice 3","choice 4"], 
+    "answer":"answer here"}]
+    The JSON response:`
+
+    if(content)
+      prompt = `
         You are a very experienced teacher and you can create problems after reading some content; the content section will always end with "@@##".
         You now need to create two short practice problems based on content I will give you;
         the question type is ${questionType}. 
@@ -105,19 +121,9 @@ export default function Home() {
 
     handleGeneration(prompt, setUpQuiz);
 
-//     handleGeneration(`
-//     Create two short practice problem for the following topic: ${topic},
-//     the question type is ${questionType}. 
-//  if the question type is multipleChoice, give me choices,
-//     and answer. if the question type is text, only give me answer.
-//     Do not include any explanations, only provide a  RFC8259 compliant JSON response 
-//     following this format without deviation.
-//     [{
-//       "question": "question here", 
-//     "questionType": "multipleChoice or text", 
-//     "choices":["choice 1","choice 2","choice 3","choice 4"], 
-//     "answer":"answer here"}]
-//     The JSON response:`, setUpQuiz);
+
+
+//     handleGeneration(, setUpQuiz);
 //   }
         }
   const setUpQuiz = (responseOjbect: any) =>{  
