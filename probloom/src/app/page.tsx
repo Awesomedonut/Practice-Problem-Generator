@@ -266,7 +266,6 @@ export default function Home() {
       </div>
 }
       <div className={styles.bottomContainer}>
-      <p id="outputText"></p>
     </div>
   </div>
   );
