@@ -1,4 +1,4 @@
-import OpenAI from 'openai';
+import OpenAI from 'openai'; 
 
 export default async function handler(req: any, res: any) {
   // Only allow POST requests
