@@ -1,13 +1,37 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react';
 import Home from '../src/app/page';
 import '@testing-library/jest-dom'
  
 describe('Home', () => {
-  it('renders a text box with the following placeholder text: Enter topic', () => {
-    render(<Home />)
- 
-    const input = screen.getByPlaceholderText('Enter topic');
+  it('allows selecting a question type from the dropdown', () => {
+    render(<Home />);
+    
+    // Find the select element by its value initially being an empty string
+    const selectElement = screen.getByDisplayValue('');
 
-    expect(input).toBeInTheDocument()
+    // Check if the initial value is an empty string
+    expect(selectElement).toHaveValue('');
+
+    // Select "Multiple Choice" from the dropdown
+    fireEvent.change(selectElement, { target: { value: 'multipleChoice' } });
+
+    // Check if the value has been updated to 'multipleChoice'
+    expect(selectElement).toHaveValue('multipleChoice');
+
+    // Select "Text" from the dropdown
+    fireEvent.change(selectElement, { target: { value: 'text' } });
+
+    // Check if the value has been updated to 'text'
+    expect(selectElement).toHaveValue('text');
+  });
+ 
+
+  it('initially does not render the topic text', () => {
+    render(<Home />);
+
+    const topicText = screen.queryByText('Topic');
+
+    expect(topicText).not.toBeInTheDocument();
   })
+
 })
