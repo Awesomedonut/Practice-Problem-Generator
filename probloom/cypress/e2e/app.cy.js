@@ -12,7 +12,7 @@ describe('Problem Generation', () => {
     cy.visit('http://localhost:3000/');
 
     // Fill in the topic input
-    cy.get('#inputGen').type('Java');
+    cy.get('#inputGen', { timeout: 10000 }).should('exist').type('Java');
 
     // Click the "Generate Problem" button
     cy.contains('Generate Problem').click();
