@@ -83,6 +83,9 @@ export default function Home() {
   }
 
   async function handleGenerateProblems() {
+    if(topic == "" && content == ""){
+      return setError('Please enter a topic or upload a pdf');
+    }
     var prompt = `
     Create two short practice problem for the following topic: ${topic},
     the question type is ${questionType}. 
