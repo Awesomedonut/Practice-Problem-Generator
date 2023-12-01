@@ -21,22 +21,16 @@ export default function Home() {
   useEffect(() => {
     if (!process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ || process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ == "0") {
       setTopic("java");
-      setSolutions(`
-    solutions here solutions here solutions here solutions here solutions here solutions 
-    here solutions here solutions here solutions here solutions here solutions here solutions 
-    here solutions here solutions here solutions here solutions here solutions here solutions 
-    here solutions here solutions here solutions here solutions here solutions here solutions 
-    here solutions here solutions here solutions here solutions here solutions here solutions 
-    here solutions here solutions here solutions here solutions here solutions here solutions here `);
+      setSolutions(` here is the review of your answers `);
       setProblems([
         {
-          question: "question here",
+          question: "question one",
           questionType: "multipleChoice",
           choices: [" choice 1", " choice 2", " choice 3", " choice 4"],
           answer: "answer here"
         },
         {
-          question: "question here",
+          question: "question two",
           questionType: "text",
           answer: "answer here"
         }
