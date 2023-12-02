@@ -75,6 +75,7 @@
   
   .heading {
     margin-bottom: 19px;
+    font-size: 20px; 
 
   }
   
@@ -88,10 +89,11 @@
  .contactus {
   width: 350px;
   background-color: #f5f9fce2;
-  color: black;
+  color: rgb(3, 3, 3);
   text-align: center;
   border-radius: 20px;
   height: 65px;
   padding:12px;
   margin-top: 2%;
+  font-size: medium;
 }
