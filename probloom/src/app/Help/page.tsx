@@ -41,7 +41,7 @@ export default function Help() {
             </div>
             <div className={styles.contactus}>
                 <p>We are here to help!</p>
-                <h4>Contact Us: <a href="mailto:questions@probloom.com? &subject=Question about Probloom &body=Add your questions and/or feedback here">questions@probloom.com</a></h4>  
+                <p>Contact Us: <a href="mailto:questions@probloom.com? &subject=Question about Probloom &body=Add your questions and/or feedback here">questions@probloom.com</a></p>  
             </div>
         </div>
     );   
