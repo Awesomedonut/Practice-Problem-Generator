@@ -89,7 +89,7 @@ describe('File Input', () => {
 describe('Output text', () => {
   it('should contain text', () => {
     cy.visit('http://localhost:3000/');
-    cy.get("#outputText").should('have.text');
+    cy.get("#outputText").should('have.text', '0');
   })
 })
   
