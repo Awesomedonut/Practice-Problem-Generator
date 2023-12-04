@@ -21,4 +21,18 @@ describe('Problem Generation', () => {
     cy.get('#question-2').should('exist');
   });
 });
+
+describe('File Input', () => {
+  it('should have a file input option', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('#pdfInput').should('exist');
+  })
+})
+
+describe('Output text', () => {
+  it('should contain text', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get("outputText").should('have.text');
+  })
+})
   
