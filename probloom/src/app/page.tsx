@@ -237,7 +237,7 @@ export default function Home() {
         </div>
       }
       <div className={styles.bottomContainer}>
-        <p id="outputText">&nbsp;</p>
+        <p id="outputText">0</p>
       </div>
     </div>
   );
