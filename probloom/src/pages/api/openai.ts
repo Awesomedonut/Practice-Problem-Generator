@@ -1,7 +1,7 @@
 import OpenAI from 'openai'; 
 
 export default async function handler(req: any, res: any) {
-  // Only allow POST requests 
+  // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
