@@ -19,7 +19,9 @@ export default function Home() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    if (!process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ || process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ == "0") {
+    const hideDefaultQuiz = process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ || '1';
+    // Now you can use hideDefaultQuiz in your if condition
+    if (hideDefaultQuiz === "0") {
       setTopic("java");
       setSolutions(` here is the review of your answers `);
       setProblems([
@@ -225,11 +227,9 @@ export default function Home() {
         }
       </div>
       {solutions && <div className={styles.SolutionBox}>
-        <div>{solutions}</div>
+        <div id="quizSolution">{solutions}</div>
       </div>}
       {solutions &&
-
-
         <div className={styles.downloadBox}>
           <button onClick={downloadQuestionsPDF}>Download Questions</button>
           <button onClick={downloadAnswersPDF}>Download Answers</button>
@@ -237,7 +237,7 @@ export default function Home() {
         </div>
       }
       <div className={styles.bottomContainer}>
-        <p id="outputText"></p>
+        <p id="outputText">&nbsp;</p>
       </div>
     </div>
   );

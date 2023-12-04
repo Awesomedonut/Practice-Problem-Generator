@@ -8,7 +8,7 @@ export default async function handler(req: any, res: any) {
 
   try {
     const openai = new OpenAI({
-      apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+      apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY  || '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',
     });
 
     // Extract the prompt from the request body
