@@ -212,7 +212,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      {loading && <Spinner />} {/* Render spinner when loading is true */}
+      {/* {loading && <Spinner />} Render spinner when loading is true */}
       <div className={styles.content}>
         <div className={styles.mainTitleDiv}>
           <img src="FlowerLogo.png" height="80" />
