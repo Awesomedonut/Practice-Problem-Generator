@@ -129,6 +129,7 @@ export default function Home() {
 
   const handleRestart = () => {
     setProblems([])
+    setUserAnswers([]);
     setSolutions("")
   };
 
