@@ -25,7 +25,6 @@ export default function Home() {
 
   useEffect(() => {
     const hideDefaultQuiz = process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ || "1";
-    // Now you can use hideDefaultQuiz in your if condition
     if (hideDefaultQuiz === "0") {
       setTopic("java");
       setSolutions(` here is the review of your answers `);
@@ -44,8 +43,6 @@ export default function Home() {
       ]);
     }
   }, []);
-
-  //TODO: move this function to another file
 
   async function handleGeneration(prompt: string, setFunction: any) {
     setLoading(true);
@@ -198,7 +195,7 @@ export default function Home() {
       result = result + "\n" + printThingAnswers(item);
     });
     const doc = new jsPDF();
-    const text = result; // Replace with your text
+    const text = result;
     const split_text = doc.splitTextToSize(text, 180);
     doc.text(split_text, 10, 10);
 
@@ -258,11 +255,8 @@ export default function Home() {
             </button>
           </div>
         )}
-        {/* {topic &&
-          <div className={styles.TopicBox}>
-            <p>{topic}</p>
-          </div>
-        } */}
+        {
+        }
         {!solutions && problems && problems.length > 0 && (
           <div className={styles.OutputBox}>
             <QuizSection
