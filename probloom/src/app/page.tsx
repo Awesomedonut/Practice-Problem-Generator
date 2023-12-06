@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 import { useEffect } from 'react';
-
+import { MultipleChoiceQuestion, printQuestionAndChoices } from './interfaces/MultipleChoiceQuestion';
+import { TextQuestion, printQuestion } from './interfaces/TextQuestion';
 import FileIn from './components/FileIn/fileIn';
-import { Problem } from './types/Problem';
+import { Problem, printThing, printThingAnswers } from './types/Problem';
 import QuizSection from './components/Quiz/QuizSection';
+import { jsPDF } from "jspdf";
 
 export default function Home() {
   const [topic, setTopic] = useState('');
@@ -147,39 +149,38 @@ export default function Home() {
   };
 
   const downloadQuestionsPDF = () => {
-    var pdfMake = require('pdfmake/build/pdfmake.js');
-    var docDefinition = {
-      content: [
-        { text: { problems } }
-      ],
-      defaultStyle: {
-      }
-    };
-    pdfMake.createPdf(docDefinition).print();
-  }
+    var result:string = 'Questions:\n\n';
+    problems.forEach(item => {
+      result = result + '\n' + printThing(item);
+    })
 
-  const downloadAnswersPDF = () => {
-    var pdfMake = require('pdfmake/build/pdfmake.js');
-    var docDefinition = {
-      content: [
-        { text: { solutions } }
-      ],
-      defaultStyle: {
-      }
-    };
-    pdfMake.createPdf(docDefinition).print();
+      const doc = new jsPDF();
+      const text = result; // Replace with your text
+      const split_text = doc.splitTextToSize(text, 180);
+      doc.text(split_text, 10, 10);
+
+      // Save the PDF in a Blob and open it in a new window
+      const pdfBlob = doc.output("blob");
+      window.open(URL.createObjectURL(pdfBlob), '_blank');
   }
 
   const downloadQAPDF = () => {
-    var pdfMake = require('pdfmake/build/pdfmake.js');
-    var docDefinition = {
-      content: [
-        { text: ({ problems } + '\n\n' + { solutions }) }
-      ],
-      defaultStyle: {
-      }
-    };
-    pdfMake.createPdf(docDefinition).print();
+    var result:string = 'Questions:\n\n';
+    problems.forEach(item => {
+      result = result + '\n' + printThing(item);
+    })
+    result = result + "\n\nAnswers:\n\n";
+    problems.forEach(item => {
+      result = result + '\n' + printThingAnswers(item);
+    })
+      const doc = new jsPDF();
+      const text = result; // Replace with your text
+      const split_text = doc.splitTextToSize(text, 180);
+      doc.text(split_text, 10, 10);
+
+      // Save the PDF in a Blob and open it in a new window
+      const pdfBlob = doc.output("blob");
+      window.open(URL.createObjectURL(pdfBlob), '_blank');
   }
 
   return (
@@ -232,7 +233,6 @@ export default function Home() {
       {solutions &&
         <div className={styles.downloadBox}>
           <button onClick={downloadQuestionsPDF}>Download Questions</button>
-          <button onClick={downloadAnswersPDF}>Download Answers</button>
           <button onClick={downloadQAPDF}>Download Q&A</button>
         </div>
       }
