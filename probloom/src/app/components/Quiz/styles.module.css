@@ -27,6 +27,9 @@
   .choice {
     padding: 2px 0px 2px 0px;
   }
+  .choice input {
+    margin: 10px;
+  }  
    /* 
  
   

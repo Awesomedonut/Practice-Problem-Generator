@@ -14,7 +14,10 @@ const QuizSection: React.FC<QuizSectionProps> = ({ problems, userAnswers, handle
       <h1>Quiz</h1>
       {problems.map((problem, index) => (
         <div key={index} className={styles.questionSection}>
-          <p id={`question-${index + 1}`} className={styles.question}>Q{index+1}. {problem.question}</p>
+          <div     id={`question-${index + 1}`} 
+    className={styles.question}
+    dangerouslySetInnerHTML={{ __html: `Q${index + 1}. ${problem.question.replace(/\n/g, '<br>')}` }}
+/>
           <div className={styles.questionbody}>
             {problem.questionType === 'text' ? (
               <textarea
@@ -22,7 +25,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ problems, userAnswers, handle
                 name={`textQuestion${index}`}
                 rows={5}
                 cols={50}
-                style={{ width: '100%', padding: '10px', borderRadius: '16px', backgroundColor: 'rgb(56,56,56)', border: 'none',resize: 'none',}}
+                style={{ width: '100%', padding: '10px', borderRadius: '16px', color:'white', backgroundColor: 'rgb(56,56,56)', border: 'none',resize: 'none',}}
                 value={userAnswers[index] || ''}
                 onChange={(e) => handleAnswerChange(index, e.target.value)}
               />

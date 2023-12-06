@@ -81,11 +81,11 @@ export default function Home() {
   }
 
   async function handleGenerateProblems() {
-    if(topic == "" && content == ""){
+    if (topic == "" && content == "") {
       return setError('Please enter a topic or upload a pdf');
     }
     var prompt = `
-    Create three short practice problem for the following topic: ${topic},
+    Create two short practice problem for the following topic: ${topic},
     the question type is ${questionType}. 
  if the question type is multipleChoice, give me choices,
     and answer. if the question type is text, only give me answer.
@@ -101,7 +101,7 @@ export default function Home() {
     if (content)
       prompt = `
         You are a very experienced teacher and you can create problems after reading some content; the content section will always end with "@@##".
-        You now need to create three short practice problems based on content I will give you;
+        You now need to create two short practice problems based on content I will give you;
         the question type is ${questionType}. 
      if the question type is multipleChoice, give me choices,
         and answer. if the question type is text, only give me answer.
@@ -142,30 +142,35 @@ export default function Home() {
     const prompt =
       `I have ${userAnswersEntries.length} answers: ${userAnswersText} 
     for these ${problems.length} questions: ${questionsText}
-    please check my answers and give me feedback
+    check my answers and give me feedback, use one paragraph for each answer.
     `;
     console.log(prompt);
-    handleGeneration(prompt, setSolutions);
+    handleGeneration(prompt, setReview);
   };
 
+  const setReview = (responseOjbect: any) => {
+    console.log(responseOjbect);
+    console.log(responseOjbect.replace("Answer", "<br />Answer"));
+    setSolutions(responseOjbect.replace("Answer", "<br />Answer"));
+  }
   const downloadQuestionsPDF = () => {
-    var result:string = 'Questions:\n\n';
+    var result: string = 'Questions:\n\n';
     problems.forEach(item => {
       result = result + '\n' + printThing(item);
     })
 
-      const doc = new jsPDF();
-      const text = result; // Replace with your text
-      const split_text = doc.splitTextToSize(text, 180);
-      doc.text(split_text, 10, 10);
+    const doc = new jsPDF();
+    const text = result; // Replace with your text
+    const split_text = doc.splitTextToSize(text, 180);
+    doc.text(split_text, 10, 10);
 
-      // Save the PDF in a Blob and open it in a new window
-      const pdfBlob = doc.output("blob");
-      window.open(URL.createObjectURL(pdfBlob), '_blank');
+    // Save the PDF in a Blob and open it in a new window
+    const pdfBlob = doc.output("blob");
+    window.open(URL.createObjectURL(pdfBlob), '_blank');
   }
 
   const downloadQAPDF = () => {
-    var result:string = 'Questions:\n\n';
+    var result: string = 'Questions:\n\n';
     problems.forEach(item => {
       result = result + '\n' + printThing(item);
     })
@@ -173,14 +178,14 @@ export default function Home() {
     problems.forEach(item => {
       result = result + '\n' + printThingAnswers(item);
     })
-      const doc = new jsPDF();
-      const text = result; // Replace with your text
-      const split_text = doc.splitTextToSize(text, 180);
-      doc.text(split_text, 10, 10);
+    const doc = new jsPDF();
+    const text = result; // Replace with your text
+    const split_text = doc.splitTextToSize(text, 180);
+    doc.text(split_text, 10, 10);
 
-      // Save the PDF in a Blob and open it in a new window
-      const pdfBlob = doc.output("blob");
-      window.open(URL.createObjectURL(pdfBlob), '_blank');
+    // Save the PDF in a Blob and open it in a new window
+    const pdfBlob = doc.output("blob");
+    window.open(URL.createObjectURL(pdfBlob), '_blank');
   }
 
   return (
@@ -215,11 +220,11 @@ export default function Home() {
             <button onClick={handleGenerateProblems} disabled={loading}><a href="#quizSection">{loading ? 'Generating...' : 'Generate Problem'}</a></button>
           </div>
         }
-        {topic &&
+        {/* {topic &&
           <div className={styles.TopicBox}>
             <p>{topic}</p>
           </div>
-        }
+        } */}
         {problems && problems.length > 0 &&
           <div className={styles.OutputBox}>
             <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
@@ -228,8 +233,11 @@ export default function Home() {
         }
       </div>
       {solutions && <div className={styles.SolutionBox}>
-        <div id="quizSolution">{solutions}</div>
-      </div>}
+        <div
+          id="quizSolution"
+          dangerouslySetInnerHTML={{ __html: solutions.replace(/\n/g, '<br>') }}
+          ></div>      
+        </div>}
       {solutions &&
         <div className={styles.downloadBox}>
           <button onClick={downloadQuestionsPDF}>Download Questions</button>
