@@ -24,7 +24,6 @@ export default function Home() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // setLoading(true);
     const hideDefaultQuiz = process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ || "1";
     // Now you can use hideDefaultQuiz in your if condition
     if (hideDefaultQuiz === "0") {
@@ -142,9 +141,7 @@ export default function Home() {
   // Function to render the spinner
   const Spinner = () => {
     return (
-      <div className={styles.spinnerContainer}>
         <div className={styles.spinner}></div>
-      </div>
     );
   };
 
@@ -212,7 +209,6 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      {/* {loading && <Spinner />} Render spinner when loading is true */}
       <div className={styles.content}>
         <div className={styles.mainTitleDiv}>
           <img src="FlowerLogo.png" height="80" />
@@ -258,7 +254,7 @@ export default function Home() {
             <button onClick={handleGenerateProblems} disabled={loading}>
               <a href="#quizSection">
                 {loading ? "Generating..." : "Generate Problem"}
-              </a>
+              </a>{loading && <Spinner />} 
             </button>
           </div>
         )}
@@ -279,7 +275,7 @@ export default function Home() {
               onClick={handleSubmit}
               disabled={loading}
             >
-              {loading ? "Checking your answers..." : "Submit Answers"}
+              {loading ? "Checking your answers..." : "Submit Answers"}{loading && <Spinner />} 
             </button>
             <button
               className={styles.submitAnswersButton}
