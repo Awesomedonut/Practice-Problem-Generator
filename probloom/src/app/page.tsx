@@ -24,7 +24,7 @@ export default function Home() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     const hideDefaultQuiz = process.env.NEXT_PUBLIC_HIDE_DEFAULT_QUIZ || "1";
     // Now you can use hideDefaultQuiz in your if condition
     if (hideDefaultQuiz === "0") {
