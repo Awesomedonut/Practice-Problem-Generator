@@ -83,7 +83,7 @@ export default function Home() {
       return setError('Please enter a topic or upload a pdf');
     }
     var prompt = `
-    Create two short practice problem for the following topic: ${topic},
+    Create three short practice problem for the following topic: ${topic},
     the question type is ${questionType}. 
  if the question type is multipleChoice, give me choices,
     and answer. if the question type is text, only give me answer.
@@ -99,7 +99,7 @@ export default function Home() {
     if (content)
       prompt = `
         You are a very experienced teacher and you can create problems after reading some content; the content section will always end with "@@##".
-        You now need to create two short practice problems based on content I will give you;
+        You now need to create three short practice problems based on content I will give you;
         the question type is ${questionType}. 
      if the question type is multipleChoice, give me choices,
         and answer. if the question type is text, only give me answer.
