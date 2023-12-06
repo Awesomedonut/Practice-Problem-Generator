@@ -225,10 +225,11 @@ export default function Home() {
             <p>{topic}</p>
           </div>
         } */}
-        {problems && problems.length > 0 &&
+        {!solutions && problems && problems.length > 0 &&
           <div className={styles.OutputBox}>
             <QuizSection problems={problems} userAnswers={userAnswers} handleAnswerChange={handleAnswerChange} />
-            <button className={styles.submitAnswersButton} onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>              <button className={styles.submitAnswersButton} onClick={handleRestart} disabled={loading}>{loading ? '...' : 'Restart'}</button>
+            <button className={styles.submitAnswersButton} onClick={handleSubmit} disabled={loading}>{loading ? 'Checking your answers...' : 'Submit Answers'}</button>              
+            <button className={styles.submitAnswersButton} onClick={handleRestart} disabled={loading}>{loading ? '...' : 'Restart'}</button>
           </div>
         }
       </div>
@@ -242,6 +243,7 @@ export default function Home() {
         <div className={styles.downloadBox}>
           <button onClick={downloadQuestionsPDF}>Download Questions</button>
           <button onClick={downloadQAPDF}>Download Q&A</button>
+          <button onClick={handleRestart} disabled={loading}>{loading ? '...' : 'Restart'}</button>
         </div>
       }
       <div className={styles.bottomContainer}>
