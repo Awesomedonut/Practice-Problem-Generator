@@ -56,7 +56,7 @@ const FileIn: React.FC<FileInProps> = ({ onReceive }) => {
 
     return (
         <div>
-            <input type="file" className={styles.pdfInput} id="pdfInput" accept="application/pdf" />
+            <input type="file" data-testid="pdfInput" className={styles.pdfInput} id="pdfInput" accept="application/pdf" />
         </div>
     );
 };
