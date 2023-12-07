@@ -8,7 +8,6 @@ import Slider from "./Slider";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect } from "react";
 
-
 const kaushan = Kaushan_Script({
   weight: ["400", "400"],
   style: ["normal"],
