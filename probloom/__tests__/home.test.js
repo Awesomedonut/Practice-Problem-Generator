@@ -6,8 +6,8 @@ describe('Home', () => {
   it('allows selecting a question type from the dropdown', () => {
     render(<Home />);
     
-    // Find the select element by its value initially being an empty string
-    const selectElement = screen.getByDisplayValue('');
+    // Find the select element by its id
+    const selectElement = screen.getByTestId('ddlQuestionType');
 
     // Check if the initial value is an empty string
     expect(selectElement).toHaveValue('');
@@ -24,7 +24,6 @@ describe('Home', () => {
     // Check if the value has been updated to 'text'
     expect(selectElement).toHaveValue('text');
   });
- 
 
   it('initially does not render the topic text', () => {
     render(<Home />);

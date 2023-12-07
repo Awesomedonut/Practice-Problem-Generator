@@ -141,7 +141,7 @@ export default function Home() {
   // Function to render the spinner
   const Spinner = () => {
     return (
-        <div className={styles.spinner}></div>
+      <div className={styles.spinner}></div>
     );
   };
 
@@ -238,7 +238,8 @@ export default function Home() {
               placeholder="Enter topic"
             />
 
-            <select
+            <select data-testid="ddlQuestionType"
+              id="ddlQuestionType"
               value={questionType}
               onChange={(e) => setQuestionType(e.target.value)}
               className={styles.dropdown}
@@ -254,7 +255,7 @@ export default function Home() {
             <button onClick={handleGenerateProblems} disabled={loading}>
               <a href="#quizSection">
                 {loading ? "Generating..." : "Generate Problem"}
-              </a>{loading && <Spinner />} 
+              </a>{loading && <Spinner />}
             </button>
           </div>
         )}
@@ -275,7 +276,7 @@ export default function Home() {
               onClick={handleSubmit}
               disabled={loading}
             >
-              {loading ? "Checking your answers..." : "Submit Answers"}{loading && <Spinner />} 
+              {loading ? "Checking your answers..." : "Submit Answers"}{loading && <Spinner />}
             </button>
             <button
               className={styles.submitAnswersButton}
