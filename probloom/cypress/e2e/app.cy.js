@@ -92,4 +92,13 @@ describe('Output text', () => {
     cy.get("#outputText").should('have.text', '0');
   })
 })
+
+describe('FileIn Component Tests', () => {
+  it('verifies PDF file upload', () => {
+    cy.visit('http://localhost:3000/')
+    cy.fixture('sample.pdf').then(fileContent => {
+      cy.get('[data-testid="pdfInput"]').trigger('change', { force: true, dataTransfer: { files: [fileContent] } });
+    });
+  });
+})
   

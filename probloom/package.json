@@ -20,6 +20,7 @@
     "next": "14.0.2",
     "openai": "^4.17.4",
     "pdf.js-extract": "^0.2.1",
+    "pdfjs": "^2.5.2",
     "pdfjs-dist": "^4.0.189",
     "pdfmake": "^0.2.8",
     "react": "^18",
