@@ -40,4 +40,4 @@ Contributors:
 Zoe Wong (zswong)
 Lucas De Biasio (LucasDeBiasio)
 Julie Wu (joolzmusic)
-Yan Jin Song (Awesomedonut)
+Jin Song (Awesomedonut)
