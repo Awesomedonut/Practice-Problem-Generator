@@ -3,7 +3,7 @@
 
 Group project for CMPT 276
 
-Vercel hosting link: https://practice-problem-generator.vercel.app/
+Info Slides: https://docs.google.com/presentation/d/1jIQ1k1jCgXz1_akUxe0S7ijwohhSGS9AU6XYqNYXSEU/edit?usp=sharing
 
 Local Setup Instructions:
 
